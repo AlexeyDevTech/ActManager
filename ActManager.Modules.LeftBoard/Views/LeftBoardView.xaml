@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="ActManager.Modules.LeftBoard.Views.LeftBoardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ActManager.Modules.LeftBoard.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:ActManager.Modules.LeftBoard.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:LeftBoardViewModel}"
+             d:DesignHeight="800" d:DesignWidth="350"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ActManager.Modules.LeftBoard;component/Resources/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Constructions}">
+            <!-- Оформляем первый уровень — Construction -->
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Name}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Description}" Margin="10,0,0,0"/>
+                            <!-- Вложенный ItemsControl для Contracts -->
+                            <ItemsControl ItemsSource="{Binding Contracts}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Expander Header="{Binding Name}">
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Description}" Margin="10,0,0,0"/>
+                                                <TextBlock Text="{Binding Date, StringFormat='dd/MM/yyyy'}" Margin="10,0,0,0"/>
+                                                <!-- Вложенный ItemsControl для Acts -->
+                                                <ItemsControl ItemsSource="{Binding Acts}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <StackPanel Margin="20,0,0,0">
+                                                                <TextBlock Text="--- Act Info ---" FontWeight="Bold"/>
+                                                                <TextBlock Text="{Binding Name}" Margin="10,0,0,0"/>
+                                                                <TextBlock Text="{Binding Description}" Margin="10,0,0,0"/>
+                                                                <TextBlock Text="{Binding Date, StringFormat='dd/MM/yyyy'}" Margin="10,0,0,0"/>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Expander>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Expander>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
