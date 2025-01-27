@@ -29,30 +29,6 @@ namespace ActManager.Modules.LeftBoard.ViewModels
             {
                 Name = "Строительство A",
                 Description = "Описание строительства A",
-                Contracts = new ObservableCollection<Contract>
-                {
-                    new Contract
-                    {
-                        Name = "Контракт 1",
-                        Description = "Описание контракта 1",
-                        Date = DateTime.Now,
-                        Acts = new ObservableCollection<Act>
-                        {
-                            new Act { Id = 1, Name = "Акт 1", Description = "Описание акта 1", Date = DateTime.Now },
-                            new Act { Id = 2, Name = "Акт 2", Description = "Описание акта 2", Date = DateTime.Now.AddDays(1) }
-                        }
-                    },
-                    new Contract
-                    {
-                        Name = "Контракт 2",
-                        Description = "Описание контракта 2",
-                        Date = DateTime.Now.AddMonths(1),
-                        Acts = new ObservableCollection<Act>
-                        {
-                            new Act { Id = 3, Name = "Акт 3", Description = "Описание акта 3", Date = DateTime.Now.AddMonths(1).AddDays(2) }
-                        }
-                    }
-                }
             }
         };
         }
