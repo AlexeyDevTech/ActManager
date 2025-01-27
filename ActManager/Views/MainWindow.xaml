@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="900" Width="1600" >
-    <Grid>
+        Title="{Binding Title}" Height="900" Width="1700" >
+    <Grid Background="#253034">
         <Grid.RowDefinitions>
             <RowDefinition Height="68"/>
             <RowDefinition Height="30"/>
@@ -14,9 +14,9 @@
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="InfoBoardRegion"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
             <ContentControl Grid.Column="0" prism:RegionManager.RegionName="LeftBoardRegion"/>
             <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" />
