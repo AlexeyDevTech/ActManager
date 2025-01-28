@@ -15,265 +15,80 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ActManager.Modules.LeftBoard;component/Resources/StyleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Стилизация ScrollBar -->
+            <Style TargetType="ScrollBar">
+                <Setter Property="Width" Value="10"/>
+                <Setter Property="Foreground" Value="#FFC0C0C0"/>
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ScrollBar">
+                            <Grid>
+                                <Rectangle Fill="{TemplateBinding Background}" RadiusX="10" RadiusY="10"/>
+                                <Track Name="PART_Track" IsDirectionReversed="True">
+                                    <Track.Thumb>
+                                        <Thumb Margin="3 5">
+                                            <Thumb.Template>
+                                                <ControlTemplate TargetType="Thumb">
+                                                    <Border 
+                                            Background="#FF394466" 
+                                            CornerRadius="7"
+                                            Margin="0"
+                                            HorizontalAlignment="Stretch" 
+                                            VerticalAlignment="Stretch" />
+                                                </ControlTemplate>
+                                            </Thumb.Template>
+                                        </Thumb>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Стиль карточки здания -->
+            <Style x:Key="BuildingCardStyle" TargetType="Border">
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Height" Value="120"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Background" Value="#CCC"/>
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid Background="#253034">
-        <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-            
-            <WrapPanel HorizontalAlignment="Center" MaxWidth="500" MinWidth="125">
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
+
+    <Grid Background="#FF16212F">
+        <ScrollViewer >
+            <ItemsControl ItemsSource="{Binding Constructions}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" MinWidth="125"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource BuildingCardStyle}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
                                     <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
+                                <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{Binding Name}" Foreground="Black" TextAlignment="Center" FontSize="14"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding Address}" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border Width="150" Height="120" Margin="5" Background="#CCC" CornerRadius="15">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="Здание" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                <TextBlock Grid.Row="1" Text="ул. Спартаковская 25\2, офис 100" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14"/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 </UserControl>

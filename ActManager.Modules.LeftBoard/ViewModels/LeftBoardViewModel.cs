@@ -29,7 +29,39 @@ namespace ActManager.Modules.LeftBoard.ViewModels
             {
                 Name = "Строительство A",
                 Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
+            },
+            new Construction
+            {
+                Name = "Строительство 2",
+                Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
+            },
+            new Construction
+            {
+                Name = "Строительство 3",
+                Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
+            },
+            new Construction
+            {
+                Name = "Строительство 4",
+                Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
+            },
+            new Construction
+            {
+                Name = "Строительство 5",
+                Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
+            },
+            new Construction
+            {
+                Name = "Строительство 6",
+                Description = "Описание строительства A",
+                Address = "ул. Блюхера, 36, офис 100",
             }
+
         };
         }
     }
