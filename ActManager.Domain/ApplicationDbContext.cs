@@ -7,7 +7,7 @@ namespace ActManager.Domain
     {
         DbSet<Address> Addresses { get; set; }
         public DbSet<Building> Buildings { get; set; }
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext()
         {
           Database.EnsureCreated();
         }
