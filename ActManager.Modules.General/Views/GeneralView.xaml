@@ -9,6 +9,6 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <Grid Background="#FF434E5C">
-        
+        <ContentControl prism:RegionManager.RegionName="GeneralContentRegion"/>
     </Grid>
 </UserControl>
