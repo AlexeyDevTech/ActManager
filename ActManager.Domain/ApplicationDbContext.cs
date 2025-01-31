@@ -5,10 +5,12 @@ namespace ActManager.Domain
 {
     public class ApplicationDbContext : DbContext
     {
-        DbSet<Address> Addresses { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<Building> Buildings { get; set; }
+        public DbSet<Act> Acts { get; set; }
         public ApplicationDbContext()
         {
+          //Database.EnsureDeleted();
           Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
