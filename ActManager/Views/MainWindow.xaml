@@ -2,6 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="900" Width="1800" >
     <Grid Background="#FF25303E">
@@ -10,7 +11,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="HeaderRegion" Margin="5"/>
+        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}" Margin="5"/>
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="InfoBoardRegion"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -20,11 +21,9 @@
                 <!--<ColumnDefinition Width="5"/>-->
                 <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
-            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="LeftBoardRegion" Margin="5"/>
-            <!--<Border Grid.Column="1" Background="Black" BorderThickness="0.5,0,0.5,0" BorderBrush="White"/>-->
-            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="ContentRegion" Margin="5" />
-           <!--<Border Grid.Column="3" Background="Black" BorderThickness="0.5,0,0.5,0" BorderBrush="White"/>-->
-            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="RightBoardRegion" Margin="5"/>
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}" Margin="5"/>
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Margin="5" />
+            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.RightBoardRegion}" Margin="5"/>
         </Grid>
     </Grid>
 </Window>
