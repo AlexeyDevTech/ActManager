@@ -7,14 +7,15 @@ using ActManager.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
-using Prism.Unity;
+using ActManager.Core.Components.Views;
+using ActManager.Core.Components.ViewModels;
 
 namespace ActManager
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : PrismApplication
+    public partial class App
     {
         protected override Window CreateShell()
         {
@@ -23,8 +24,9 @@ namespace ActManager
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<SelectBuildingMainView, SelectBuildingMainViewModel>("SelectBuilding");
         }
+        
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             base.ConfigureModuleCatalog(moduleCatalog);

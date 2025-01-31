@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ActManager.Modules.General.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="434" d:DesignWidth="1200"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <Grid Background="#FF434E5C">
-        <ContentControl prism:RegionManager.RegionName="GeneralContentRegion"/>
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.GeneralContentRegion}"/>
     </Grid>
 </UserControl>
