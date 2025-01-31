@@ -24,7 +24,6 @@ namespace ActManager.Modules.LeftBoard.ViewModels
             this.regionManager = regionManager;
             //commands
             SelectCommand = new DelegateCommand<object>(SelectBuilding);
-
             Constructions = new ObservableCollection<Building>();
             var rep = new BuildingsRepository();
             var list = rep.GetAll();

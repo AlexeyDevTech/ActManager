@@ -10,6 +10,9 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\avatar.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
