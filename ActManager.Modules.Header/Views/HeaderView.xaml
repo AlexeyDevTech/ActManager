@@ -17,20 +17,26 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition x:Name="C0"/>
+            <ColumnDefinition x:Name="C1"/>
+            <ColumnDefinition x:Name="C2"/>
+            <ColumnDefinition x:Name="C3"/>
+            <ColumnDefinition x:Name="C4"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Horizontal">
-            <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="15,0,0,0">
+        <Grid x:Name="stackPanel" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Width="50" Height="50" Margin="15 0">
                 <Grid>
                     <Image Source="/ActManager.Modules.Header;component/Resources/avatar.png" SnapsToDevicePixels="True"/>
                 </Grid>
             </Border>
-            <TextBlock Text="{Binding UserName}" VerticalAlignment="Center" Margin="10"/>
-        </StackPanel>
+            <Grid Grid.Column="1">
+                <TextBlock Text="{Binding UserName}" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10 0" Grid.IsSharedSizeScope="True"/>
+            </Grid>
+        </Grid>
         <Grid Grid.Column="4">
             <Button HorizontalAlignment="Right" Content="настройки" Height="25" Visibility="Hidden"/>
         </Grid>

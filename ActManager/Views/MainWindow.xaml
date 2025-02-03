@@ -4,7 +4,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="900" Width="1800" >
+        Title="{Binding Title}" Height="900" Width="1800" MinWidth="1060" >
     <Grid Background="#FF25303E">
         <Grid.RowDefinitions>
             <RowDefinition Height="68"/>
@@ -15,14 +15,15 @@
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="InfoBoardRegion"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="C0" Width="8*"/>
+                <ColumnDefinition x:Name="C0" Width="8*" MinWidth="280" MaxWidth="600"/>
                 <!--<ColumnDefinition Width="5"/>-->
-                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="11*" MinWidth="500"/>
                 <!--<ColumnDefinition Width="5"/>-->
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="8*" MinWidth="280" MaxWidth="600"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="5">
                 <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}" />
+                <Button Width="30" Height="30" Background="Transparent" Content="&lt;" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White" Margin="0,10,10,0" Click="Button_Click"/>
             </Grid>
             <Grid Grid.Column="1" Margin="5">
                 <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Margin="5" />
