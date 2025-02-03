@@ -21,7 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="1"/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="15 0">
@@ -71,5 +71,39 @@
                 <TextBlock Grid.Column="1" Text="{Binding OfficeNum}" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
             </Grid>
         </StackPanel>
+        <Grid Grid.Row="3" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Margin="15 0">
+                <TextBlock Text="Перечень актов:" FontSize="24"/>
+            </Grid>
+            <Grid Grid.Row="1 " Margin="15 0">
+                <ItemsControl ItemsSource="{Binding CurrentActs}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding ID}"/>
+                                <TextBlock Grid.Row="1" Text="{Binding Name}"/>
+                                <Grid Grid.Row="2">
+                                    
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
