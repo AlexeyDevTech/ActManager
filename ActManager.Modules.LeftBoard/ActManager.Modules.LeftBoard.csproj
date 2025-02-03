@@ -1,9 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\building.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+    <ProjectReference Include="..\ActManager.Domain.Models\ActManager.Domain.Models.csproj" />
+    <ProjectReference Include="..\ActManager.Domain.Repositories\ActManager.Domain.Repositories.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\building.png" />
   </ItemGroup>
 </Project>
