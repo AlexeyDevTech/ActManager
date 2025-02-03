@@ -15,15 +15,26 @@
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="InfoBoardRegion"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition x:Name="C0" Width="8*"/>
                 <!--<ColumnDefinition Width="5"/>-->
                 <ColumnDefinition Width="11*"/>
                 <!--<ColumnDefinition Width="5"/>-->
                 <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
-            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}" Margin="5"/>
-            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Margin="5" />
-            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.RightBoardRegion}" Margin="5"/>
+            <Grid Grid.Column="0" Margin="5">
+                <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}" />
+            </Grid>
+            <Grid Grid.Column="1" Margin="5">
+                <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Margin="5" />
+            </Grid>
+            <Grid Grid.Column="2" Margin="5">
+                <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.RightBoardRegion}" Margin="5"/>
+            </Grid>
+
+
+            
+            
+            
         </Grid>
     </Grid>
 </Window>
