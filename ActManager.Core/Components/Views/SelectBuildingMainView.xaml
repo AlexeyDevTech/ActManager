@@ -10,23 +10,100 @@
              d:DataContext="{d:DesignInstance vm:SelectBuildingMainViewModel}"
              d:DesignWidth="1200" d:DesignHeight="900">
     <UserControl.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Segoe UI Light"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Foreground" Value="#CCC"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ActManager.Core;component/Resources/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </UserControl.Resources>
     <Grid Background="#FF434E5C">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="10 0">
-            <TextBlock Text="Сведения об объекте:" VerticalAlignment="Center"/>
-        </Grid>
-        <StackPanel Grid.Row="1" Orientation="Vertical">
+        <Grid Grid.Row="0" Margin="15 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Сведения об объекте:" VerticalAlignment="Center" FontSize="24"/>
+            <Grid Grid.Column="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="Редактировать" HorizontalAlignment="Right" Margin="5" FontSize="14"/>
+                <Button Grid.Column="1" Content="Удалить" HorizontalAlignment="Right" Margin="5" FontSize="14"/>
+            </Grid>
             
+        </Grid>
+        <Border Grid.Row="1" Height="1" BorderThickness="1" BorderBrush="#CCC" Margin="3,0,20,0" />
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Имя Объекта:" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Адрес Объекта:" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="{Binding Address}" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+            </Grid>
+            
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Офис:" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" Text="{Binding OfficeNum}" Margin="10 0" FontSize="22" VerticalAlignment="Center"/>
+            </Grid>
         </StackPanel>
+        <Grid Grid.Row="3" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Margin="15 0">
+                <TextBlock Text="Перечень актов:" FontSize="24"/>
+            </Grid>
+            <Grid Grid.Row="1 " Margin="15 0">
+                <ItemsControl ItemsSource="{Binding CurrentActs}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding ID}"/>
+                                <TextBlock Grid.Row="1" Text="{Binding Name}"/>
+                                <Grid Grid.Row="2">
+                                    
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
