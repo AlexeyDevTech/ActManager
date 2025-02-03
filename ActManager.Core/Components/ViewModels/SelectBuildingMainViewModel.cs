@@ -7,6 +7,7 @@ namespace ActManager.Core.Components.ViewModels
     {
         private string _name;
         private string _address;
+        private int _officeNum;
 
         public string Name
         {
@@ -18,6 +19,11 @@ namespace ActManager.Core.Components.ViewModels
         {
             get => _address;
             set => SetProperty(ref _address, value);
+        }
+        public int OfficeNum
+        {
+            get => _officeNum;
+            set => SetProperty(ref _officeNum, value);
         }
 
 
@@ -40,6 +46,7 @@ namespace ActManager.Core.Components.ViewModels
         {
             Name = navigationContext.Parameters["Name"] as string ?? "default";
             Address = navigationContext.Parameters["Address"] as string ?? "default";
+            OfficeNum = (int)navigationContext.Parameters["OfficeN"] as int? ?? 0;
         }
     }
 }
