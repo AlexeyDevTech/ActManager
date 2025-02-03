@@ -1,11 +1,5 @@
 ﻿using ActManager.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActManager.Domain.Repositories
 {
@@ -35,9 +29,7 @@ namespace ActManager.Domain.Repositories
 
         public IEnumerable<Building> GetAll()
         {
-            
-            var list = _db.Buildings.Include(i => i.AddressInst).ToList();
-            return list;
+            return _db.Buildings.Include(i => i.AddressInst).ToList();
         }
 
         public Building GetItem(int id)

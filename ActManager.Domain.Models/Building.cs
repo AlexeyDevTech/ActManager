@@ -7,6 +7,7 @@ namespace ActManager.Domain.Models
         private int _id;
         private string? _name;
         private Address _addressInst;
+        private IEnumerable<Act> _acts;
 
         public int ID
         {
@@ -22,6 +23,11 @@ namespace ActManager.Domain.Models
         {
             get => _addressInst;
             set => SetProperty(ref _addressInst, value);
+        }
+        public IEnumerable<Act> Acts
+        {
+            get => _acts;
+            set => SetProperty(ref _acts, value);
         }
     }
 }

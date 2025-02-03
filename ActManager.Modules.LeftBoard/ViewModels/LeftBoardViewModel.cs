@@ -1,4 +1,5 @@
-﻿using ActManager.Domain.Models;
+﻿using ActManager.Core;
+using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -38,6 +39,11 @@ namespace ActManager.Modules.LeftBoard.ViewModels
             int inst = (int)obj;
             var bld = Constructions.FirstOrDefault(x => x.ID == inst);
             Debug.WriteLine(bld.Name);
+
+            var param = new NavigationParameters();
+            param.Add("Name", bld.Name);
+            param.Add("Address", $"{bld.AddressInst.Street}, {bld.AddressInst.StreetNumber}, officeN {bld.AddressInst.OfficeNumber}");
+            regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "SelectBuilding", param);
         }
     }
 }
