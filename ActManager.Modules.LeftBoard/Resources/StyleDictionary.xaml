@@ -5,6 +5,6 @@
         <Setter Property="FontFamily" Value="Segoe UI Light"/>
         <Setter Property="Foreground" Value="#CCC"/>
     </Style>
-    
+
 
 </ResourceDictionary>

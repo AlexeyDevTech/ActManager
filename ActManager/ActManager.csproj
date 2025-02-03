@@ -1,13 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
     <ProjectReference Include="..\ActManager.Modules.General\ActManager.Modules.General.csproj" />
     <ProjectReference Include="..\ActManager.Modules.Header\ActManager.Modules.Header.csproj" />
     <ProjectReference Include="..\ActManager.Modules.InfoBoard\ActManager.Modules.InfoBoard.csproj" />

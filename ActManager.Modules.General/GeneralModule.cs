@@ -1,4 +1,5 @@
-﻿using ActManager.Modules.General.Views;
+﻿using ActManager.Core;
+using ActManager.Modules.General.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -17,7 +18,7 @@ namespace ActManager.Modules.General
         public void OnInitialized(IContainerProvider containerProvider)
         {
             
-            _regionManager.RegisterViewWithRegion("ContentRegion", containerProvider.Resolve<GeneralView>);
+            _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, containerProvider.Resolve<GeneralView>);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

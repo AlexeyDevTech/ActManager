@@ -6,8 +6,9 @@ using ActManager.Modules.RightBoard;
 using ActManager.Views;
 using Prism.Ioc;
 using Prism.Modularity;
-using System.Printing;
 using System.Windows;
+using ActManager.Core.Components.Views;
+using ActManager.Core.Components.ViewModels;
 
 namespace ActManager
 {
@@ -23,8 +24,9 @@ namespace ActManager
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<SelectBuildingMainView, SelectBuildingMainViewModel>("SelectBuilding");
         }
+        
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             base.ConfigureModuleCatalog(moduleCatalog);
