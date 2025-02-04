@@ -41,9 +41,7 @@ namespace ActManager.Modules.LeftBoard.ViewModels
             Debug.WriteLine(bld.Name);
 
             var param = new NavigationParameters();
-            param.Add("Name", bld.Name);
-            param.Add("Address", $"{bld.AddressInst.Street}, {bld.AddressInst.StreetNumber}");
-            param.Add("OfficeN", bld.AddressInst.OfficeNumber);
+            param.Add("BuildingItem", bld);
             regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "SelectBuilding", param);
         }
     }

@@ -80,7 +80,7 @@
                 <TextBlock Text="Перечень актов:" FontSize="24"/>
             </Grid>
             <Grid Grid.Row="1 " Margin="15 0">
-                <ItemsControl ItemsSource="{Binding CurrentActs}">
+                <!--<ItemsControl ItemsSource="{Binding CurrentActs}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Vertical"/>
@@ -88,21 +88,53 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding ID}"/>
-                                <TextBlock Grid.Row="1" Text="{Binding Name}"/>
-                                <Grid Grid.Row="2">
-                                    
+                            <Border CornerRadius="5" Margin="15 0" Height="70" BorderBrush="#CCC" BorderThickness="1">
+                                <Grid Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding ID}" Foreground="#CCC"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding Name}" Foreground="#CCC"/>
+                                    <Grid Grid.Row="2">
+
+                                    </Grid>
                                 </Grid>
-                            </Grid>
+                            </Border>   
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                </ItemsControl>-->
+                <StackPanel Background="#FF122346">
+                    <Border CornerRadius="15" Margin="15 10" Height="100" BorderBrush="#CCC" BorderThickness="0" Background="#FF3A496A">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="123" Foreground="#CCC" FontSize="16"/>
+                            <TextBlock Grid.Row="1" Text="Act 1 from 01/04/2024" Foreground="#CCC" FontSize="16"/>
+                            <Grid Grid.Row="2">
+
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <Border CornerRadius="15" Margin="15 10" Height="100" Background="#FF3A496A">
+                        <Grid Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="123" Foreground="#CCC" FontSize="16"/>
+                            <TextBlock Grid.Row="1" Text="Act 1 from 01/04/2024" Foreground="#CCC" FontSize="16"/>
+                            <Grid Grid.Row="2">
+
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

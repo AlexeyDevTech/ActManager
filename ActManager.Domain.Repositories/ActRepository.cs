@@ -14,12 +14,35 @@ namespace ActManager.Domain.Repositories
 
         public void Create(Act item)
         {
-            
+            try
+            {
+                var res = db.Acts.FirstOrDefault(x => x.Equals(item.ID));
+                if (res == null)
+                {
+                    db.Acts.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            Save();
         }
 
         public void Delete(Act item)
         {
-            
+            try
+            {
+                var res = db.Acts.FirstOrDefault(x => x.Equals(item.ID));
+                if (res != null)
+                {
+                    db.Acts.Remove(res);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            Save();
         }
 
         public void Dispose()
@@ -48,7 +71,19 @@ namespace ActManager.Domain.Repositories
 
         public void Update(Act item)
         {
+            try
+            {
+                var res = db.Acts.Include(i => i.Building).FirstOrDefault(x => x.Equals(item.ID));
+                if (res != null)
+                {
+                    res.Name = item.Name;
+                    res.Building = item.Building;
+                }
+                Save();
+            } catch (Exception ex)
+            {
 
+            }
         }
     }
 }
