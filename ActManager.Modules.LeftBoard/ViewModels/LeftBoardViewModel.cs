@@ -16,33 +16,38 @@ namespace ActManager.Modules.LeftBoard.ViewModels
     {
         //basic
         IRegionManager regionManager;
+        private LeftBoardMenuState _menuState;
 
-        public ObservableCollection<Building> Constructions { get; set; }
+        public LeftBoardMenuState MenuState
+        {
+            get => _menuState;
+            set => SetProperty(ref _menuState, value);
+        }
 
-        public ICommand SelectCommand { get; set; }
+        public ICommand SelectMenuCommand { get; set; }
+
         public LeftBoardViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
             //commands
-            SelectCommand = new DelegateCommand<object>(SelectBuilding);
-            Constructions = new ObservableCollection<Building>();
-            var rep = new BuildingsRepository();
-            var list = rep.GetAll();
-            foreach (var item in list)
-            {
-                Constructions.Add(item);
-            }
+            SelectMenuCommand = new DelegateCommand<object>(SelectMenu);
+           
         }
 
-        private void SelectBuilding(object obj)
+        private void SelectMenu(object obj)
         {
-            int inst = (int)obj;
-            var bld = Constructions.FirstOrDefault(x => x.ID == inst);
-            Debug.WriteLine(bld.Name);
-
-            var param = new NavigationParameters();
-            param.Add("BuildingItem", bld);
-            regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "SelectBuilding", param);
+            int param = Int32.Parse((string)obj);
+            MenuState = (LeftBoardMenuState)param;
         }
+    }
+    public enum LeftBoardMenuState : int
+    {
+        None = 0,
+        MainMenu = 1,
+        Calendar = 2,
+        Buildings = 3,
+        Acts = 4,
+        Documents = 5,
+        Settings = 6,
     }
 }

@@ -7,7 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:LeftBoardViewModel}"
-             d:DesignHeight="800" d:DesignWidth="500"
+             d:DesignHeight="761" d:DesignWidth="100"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <UserControl.Resources>
@@ -16,64 +16,320 @@
                 <ResourceDictionary Source="/ActManager.Modules.LeftBoard;component/Resources/StyleDictionary.xaml"/>
                 <ResourceDictionary Source="/ActManager.Core;component/Resources/StyleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="ButtonMenuStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="Transparent"/>
+                
+            </Style>
+            <Style x:Key="MainMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="1">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="CalendarMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="2">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="BuildingMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="3">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ActMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="4">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="DocumentMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="5">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="SettingsMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="6">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Background="#FF16212F">
+    <Grid d:Background="#FF31373A">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="95"/>
+            <RowDefinition Height="35"/>
+
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Text="Список объектов" FontSize="28" VerticalAlignment="Center"/>
+        <Grid Grid.Row="0" Margin="0,5,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image Source="/ActManager.Modules.LeftBoard;component/Resources/male-user.png" SnapsToDevicePixels="True" />
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Прозоров" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,0,3,0" FontSize="16"/>
+                <TextBlock Grid.Row="1" Text="Алексей" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,0,3,0" FontSize="16"/>
+            </Grid>
         </Grid>
-        <ScrollViewer Grid.Row="1" Margin="0,0,10,0">
-            <ItemsControl ItemsSource="{Binding Constructions}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center" MaxWidth="500" MinWidth="125"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Style="{StaticResource BuildingCardButtonStyle}" Command="{Binding DataContext.SelectCommand, ElementName=userControl}" CommandParameter="{Binding ID}">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/building.png" Margin="5"/>
-                                <Grid Grid.Row="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition Height="2*"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Text="{Binding Name}" Foreground="Black" TextAlignment="Center" FontSize="14"/>
-                                    <TextBlock Grid.Row="1" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap" FontSize="14">
-                                        <TextBlock.Text>
-                                            <MultiBinding StringFormat="ул. {0}, {1}, офис {2}">
-                                                <Binding Path="AddressInst.Street"/>
-                                                <Binding Path="AddressInst.StreetNumber"/>
-                                                <Binding Path="AddressInst.OfficeNumber"/>
-                                            </MultiBinding>
-                                        </TextBlock.Text>
-                                    </TextBlock>
-                                </Grid>
-                            </Grid>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        <Grid Grid.Row="2">
-            <Button>
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="61"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Style="{DynamicResource MainMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="1">
                 <Button.Content>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="Добавить объект" FontSize="14"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/menu-100.png" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Главное     меню" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+            <Button Grid.Row="1" Style="{DynamicResource CalendarMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="2" >
+                <Button.Content>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/calendar-80.png" SnapsToDevicePixels="True" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Календарь и задачи" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Button Grid.Row="2" Style="{DynamicResource BuildingMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="3">
+                <Button.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/building-80.png" SnapsToDevicePixels="True" Opacity="0.7" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Объекты и офисы" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Button Grid.Row="3" Style="{DynamicResource ActMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="4">
+                <Button.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/act-100.png" SnapsToDevicePixels="True" Opacity="0.7" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Акты" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Button Grid.Row="4" Style="{DynamicResource DocumentMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="5">
+                <Button.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/doc-80.png" SnapsToDevicePixels="True" Opacity="0.7" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Хранилище документов" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Grid Grid.Row="5"></Grid>
+            <Grid Grid.Row="6"></Grid>
+            <Button Grid.Row="7" Style="{DynamicResource SettingsMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="6">
+                <Button.Content>
+                    <Grid Grid.Row="7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/settings-80.png" SnapsToDevicePixels="True" Opacity="0.7" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Настройки" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
                 </Button.Content>
             </Button>
         </Grid>
+        <Grid Grid.Row="1">
+            <Border BorderThickness="0,0,0,1" BorderBrush="#CCC">
+                <Border BorderThickness="0,1,0,0" BorderBrush="#FF111C34" Background="#FF1D2330">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0">
+                        <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/ActManager.Modules.LeftBoard;component/Resources/sync-20.png" SnapsToDevicePixels="True" Stretch="Fill" Height="20" Width="20" Margin="1,0,1,0" />
+                        <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/ActManager.Modules.LeftBoard;component/Resources/loading-20.png" SnapsToDevicePixels="True" Stretch="Fill" Height="20" Width="20" Margin="1,0,1,0" />
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/ActManager.Modules.LeftBoard;component/Resources/offline-20.png" SnapsToDevicePixels="True" Stretch="Fill" Height="20" Width="20" Margin="1,0,1,0" />
+                    </StackPanel>
+                </Border>
+            </Border>
+        </Grid>
+       
     </Grid>
 </UserControl>
