@@ -13,7 +13,7 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Panel.ZIndex="3">
             <Border Background="#FF31373A">
                 <Border.Effect>
                     <DropShadowEffect Direction="10" BlurRadius="10" ShadowDepth="2"/>
@@ -24,7 +24,19 @@
             </Border>
         </Grid>
         <Grid Grid.Column="1">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FFE6E6EA">
+                <Grid.Effect>
+                    <DropShadowEffect Direction="10" BlurRadius="10" ShadowDepth="2"/>
+                </Grid.Effect>
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

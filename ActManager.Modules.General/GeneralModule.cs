@@ -1,4 +1,5 @@
 ﻿using ActManager.Core;
+using ActManager.Modules.General.ViewModels;
 using ActManager.Modules.General.Views;
 using Prism.Ioc;
 using Prism.Modularity;
@@ -19,10 +20,13 @@ namespace ActManager.Modules.General
         {
             
             _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, containerProvider.Resolve<GeneralView>);
+            _regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
+            
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<MainMenuView>("MainMenu");
             //containerRegistry.RegisterForNavigation<>
         }
     }

@@ -3,11 +3,11 @@
 namespace ActManager.Modules.General.Views
 {
     /// <summary>
-    /// Interaction logic for GeneralView
+    /// Interaction logic for MainMenuView
     /// </summary>
-    public partial class GeneralView : UserControl
+    public partial class MainMenuView : UserControl
     {
-        public GeneralView()
+        public MainMenuView()
         {
             InitializeComponent();
         }

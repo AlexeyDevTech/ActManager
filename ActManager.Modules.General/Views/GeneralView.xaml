@@ -6,10 +6,10 @@
              xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="434" d:DesignWidth="1200"
+             d:DesignHeight="704" d:DesignWidth="1400"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
-    <Grid Background="#FF434E5C">
+    <Grid>
         <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.GeneralContentRegion}"/>
     </Grid>
 </UserControl>
