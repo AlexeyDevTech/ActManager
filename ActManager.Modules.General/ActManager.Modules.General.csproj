@@ -9,4 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\ViewModels\" />
+  </ItemGroup>
 </Project>

@@ -41,21 +41,7 @@
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="Black" Opacity="0.6"/>
                 </Grid.Effect>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Сегодня" Foreground="#333" TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="1" Text="5" Foreground="#333" TextAlignment="Center" FontSize="72" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="2" Text="Февраля" Foreground="#333" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="MainMenuItem1"/>
             </Grid>
             <Grid Grid.Column="2" Background="WhiteSmoke" Margin="10 0">
                 <Grid.Effect>
