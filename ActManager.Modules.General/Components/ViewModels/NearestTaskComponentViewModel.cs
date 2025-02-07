@@ -63,7 +63,7 @@ namespace ActManager.Modules.General.Components.ViewModels
         private string ConvertDateToString(DateTime date)
         {
 
-            return $"{date.ToString("dd MMMM yyyy")}г" ;
+            return $"{date.ToString("d MMMM yyyy")} г" ;
         }
     }
 }

@@ -21,8 +21,27 @@
         </Style>
         <conv:AlternationToBrushConverter x:Key="AlternationToBrushConverter"/>
     </UserControl.Resources>
+    <ScrollViewer>
     <Grid d:Background="White">
-        <ItemsControl x:Name="ToDoListControl" ItemsSource="{Binding Goals}" AlternationCount="2">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="25"/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <!--<TextBlock Text="ID"/>-->
+                <TextBlock Text="Задача" Grid.Column="1"/>
+                <TextBlock Text="Описание" Grid.Column="2"/>
+                <TextBlock Text="Статус" Grid.Column="3"/>
+                <TextBlock Grid.Column="4"/>
+            </Grid>
+    <ItemsControl Grid.Row="1" x:Name="ToDoListControl" ItemsSource="{Binding Goals}" AlternationCount="2">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
@@ -36,7 +55,7 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="2"  Height="40" Name="ListEl">
+                    <Grid Margin="0"  Height="40" Name="ListEl">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.2*"/>
                             <ColumnDefinition />
@@ -44,11 +63,19 @@
                             <ColumnDefinition Width="0.5*"/>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding ID}"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Title}"/>
-                        <TextBlock Grid.Column="2" Text="{Binding Description}"/>
-                        <TextBlock Grid.Column="3" Text="{Binding Status}"/>
-                        <Grid Grid.Column="4">
+                            <Border Grid.Column="0" BorderBrush="#999" BorderThickness="0 0 0.5 0">
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding ID}"/>
+                            </Border>
+                            <Border Grid.Column="1" BorderBrush="#999" BorderThickness="0.5 0 0.5 0">
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding Title}"/>
+                            </Border>
+                            <Border Grid.Column="2" BorderBrush="#999" BorderThickness="0.5 0 0.5 0">
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2" Text="{Binding Description}"/>
+                            </Border>
+                            <Border Grid.Column="3" BorderBrush="#999" BorderThickness="0.5 0 1 0">
+                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="3" Text="{Binding Status}"/>
+                            </Border>
+                            <!--<Grid Grid.Column="4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -57,7 +84,7 @@
                             <Button Grid.Column="0"></Button>
                             <Button Grid.Column="1"></Button>
                             <Button Grid.Column="2"></Button>
-                        </Grid>
+                            </Grid>-->
                     </Grid>
                     <DataTemplate.Triggers>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="0">
@@ -72,4 +99,5 @@
         </ItemsControl>
        
     </Grid>
+    </ScrollViewer>
 </UserControl>
