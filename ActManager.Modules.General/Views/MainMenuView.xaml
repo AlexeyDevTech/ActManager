@@ -47,41 +47,13 @@
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="Black" Opacity="0.6"/>
                 </Grid.Effect>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Задач на сегодня" Foreground="#333" TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="1" Text="3" Foreground="#333" TextAlignment="Center" FontSize="72" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="2" Text="осталось" Foreground="#333" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="MainMenuItem2"/>
             </Grid>
             <Grid Grid.Column="3" Background="WhiteSmoke" Margin="10 0">
                 <Grid.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="Black" Opacity="0.6"/>
                 </Grid.Effect>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Ближайшая задача" Foreground="#333" TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="1" Text="18:45" Foreground="#333" TextAlignment="Center" FontSize="72" VerticalAlignment="Center"/>
-                    <TextBlock Grid.Row="2" Text="6 февраля 2025г" Foreground="#333" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="MainMenuItem3"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="3" Grid.RowSpan="2" Margin="10" Background="#CCC"></Grid>

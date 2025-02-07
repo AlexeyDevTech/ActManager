@@ -16,7 +16,7 @@ namespace ActManager.Domain.Models
         private int _id;
         private string _name;
         private string _fileName;
-
+        
         [Key]
         public int ID
         {
@@ -31,6 +31,7 @@ namespace ActManager.Domain.Models
 
         [ForeignKey("BuildingID")]
         public Building? Building { get; set; }
-        public IEnumerable<FileName> Files { get; set; }
+        public IEnumerable<FileName>? Files { get; set; }
+        public IEnumerable<Goal>? Goals { get; set; }
     }
 }

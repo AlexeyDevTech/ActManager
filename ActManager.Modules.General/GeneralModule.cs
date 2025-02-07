@@ -23,6 +23,8 @@ namespace ActManager.Modules.General
             _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, containerProvider.Resolve<GeneralView>);
             _regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
             _regionManager.RegisterViewWithRegion("MainMenuItem1", containerProvider.Resolve<TodayComponentView>);
+            _regionManager.RegisterViewWithRegion("MainMenuItem2", containerProvider.Resolve<TodayTaskComponentView>);
+            _regionManager.RegisterViewWithRegion("MainMenuItem3", containerProvider.Resolve<NearestTaskComponentView>);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
