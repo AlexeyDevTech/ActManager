@@ -56,7 +56,11 @@
                 <ContentControl prism:RegionManager.RegionName="MainMenuItem3"/>
             </Grid>
         </Grid>
-        <Grid Grid.Row="3" Grid.RowSpan="2" Margin="10" Background="#CCC"></Grid>
+        <Border Margin="10" Grid.Row="3" BorderBrush="#FFCDCDCD" BorderThickness="1" >
+            <Grid Margin="2">
+                <ContentControl prism:RegionManager.RegionName="MainMenuToDoListRegion"/>
+            </Grid>
+        </Border>
         
     </Grid>
 </UserControl>

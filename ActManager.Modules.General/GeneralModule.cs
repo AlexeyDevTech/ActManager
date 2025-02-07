@@ -25,6 +25,7 @@ namespace ActManager.Modules.General
             _regionManager.RegisterViewWithRegion("MainMenuItem1", containerProvider.Resolve<TodayComponentView>);
             _regionManager.RegisterViewWithRegion("MainMenuItem2", containerProvider.Resolve<TodayTaskComponentView>);
             _regionManager.RegisterViewWithRegion("MainMenuItem3", containerProvider.Resolve<NearestTaskComponentView>);
+            _regionManager.RegisterViewWithRegion("MainMenuToDoListRegion", containerProvider.Resolve<ToDoListComponentView>);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

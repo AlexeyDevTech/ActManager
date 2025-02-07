@@ -27,7 +27,7 @@ namespace ActManager.Domain
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Act>().Navigation(e => e.Building).AutoInclude();
-            modelBuilder.Entity<Act>().Navigation(e => e.Goals).AutoInclude();
+            //modelBuilder.Entity<Act>().Navigation(e => e.Goals).AutoInclude();
             modelBuilder.Entity<Act>().Navigation(e => e.Files).AutoInclude();
 
             modelBuilder.Entity<FileName>().Navigation(e => e.Act).AutoInclude();
@@ -35,12 +35,6 @@ namespace ActManager.Domain
             modelBuilder.Entity<Building>().Navigation(e => e.AddressInst).AutoInclude();
 
             modelBuilder.Entity<Goal>().Navigation(e => e.Acts).AutoInclude();
-
-
-            
-
-
-            
         }
         public bool DatabaseOnline() => Database.CanConnect();
     }

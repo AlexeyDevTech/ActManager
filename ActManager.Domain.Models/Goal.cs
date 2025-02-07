@@ -29,7 +29,17 @@ namespace ActManager.Domain.Models
             get => _description;
             set => SetProperty(ref _description, value);
         }
+        public GoalStatus Status { get; set; }
         public List<Act>? Acts { get; set; } = new();
 
+    }
+
+    public enum GoalStatus : int
+    {
+        Created = 0,
+        InProgress = 1,
+        Pending = 2,
+        Finish = 3,
+        Closed = 10
     }
 }

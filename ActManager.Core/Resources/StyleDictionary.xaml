@@ -40,7 +40,7 @@
     </Style>
 
     <!--Стилизация Button-->
-    <Style TargetType="Button">
+    <!--<Style TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#CCC"/>
         <Setter Property="Width" Value="150"/>
@@ -76,5 +76,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

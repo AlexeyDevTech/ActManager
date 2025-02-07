@@ -25,6 +25,7 @@
             </Grid.RowDefinitions>
             <TextBlock Text="Задач на сегодня" Foreground="#333" TextAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="1" Text="{Binding TaskLost}" Foreground="#333" TextAlignment="Center" FontSize="72" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Text="осталось" Foreground="#333" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
         </Grid>
     </Grid>
 </UserControl>

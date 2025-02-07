@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="ActManager.Modules.General.Components.Views.ToDoListComponentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             xmlns:local="clr-namespace:ActManager.Modules.General.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:ActManager.Modules.General.Components.ViewModels"
+             xmlns:conv="clr-namespace:ActManager.Modules.General.Components.Converters"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:ToDoListComponentViewModel}"
+             d:DesignHeight="316" d:DesignWidth="1380"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <conv:AlternationToBrushConverter x:Key="AlternationToBrushConverter"/>
+    </UserControl.Resources>
+    <Grid d:Background="White">
+        <ItemsControl x:Name="ToDoListControl" ItemsSource="{Binding Goals}" AlternationCount="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="ContentControl.Background" Value="White"/>
+                    <Setter Property="ContentControl.FontSize" Value="16"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="2"  Height="40" Name="ListEl">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding ID}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Title}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Description}"/>
+                        <TextBlock Grid.Column="3" Text="{Binding Status}"/>
+                        <Grid Grid.Column="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0"></Button>
+                            <Button Grid.Column="1"></Button>
+                            <Button Grid.Column="2"></Button>
+                        </Grid>
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="White" TargetName="ListEl"/>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="WhiteSmoke" TargetName="ListEl"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+       
+    </Grid>
+</UserControl>
