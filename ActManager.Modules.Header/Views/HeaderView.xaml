@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="68" d:DesignWidth="1599"
+             d:DesignHeight="50" d:DesignWidth="1599"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <UserControl.Resources>
@@ -38,7 +38,10 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="4">
-            <Button HorizontalAlignment="Right" Content="настройки" Height="25" Visibility="Hidden"/>
+            <Border VerticalAlignment="Center" CornerRadius="10" Background="#FFDDE6F5" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <TextBlock Margin="20 5" Foreground="#333" FontSize="18" Text="6 февраля 2025 г" TextAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            
         </Grid>
     </Grid>
 </UserControl>

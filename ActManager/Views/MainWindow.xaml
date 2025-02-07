@@ -28,13 +28,13 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="#FFE6E6EA">
+            <Grid Grid.Row="0" Background="#FFF1F3F5">
                 <Grid.Effect>
                     <DropShadowEffect Direction="10" BlurRadius="10" ShadowDepth="2"/>
                 </Grid.Effect>
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
             </Grid>
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Background="#FFE7E9EB">
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}"/>
             </Grid>
         </Grid>
