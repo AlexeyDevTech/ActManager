@@ -31,7 +31,9 @@ namespace ActManager.Domain.Models
 
         [ForeignKey("BuildingID")]
         public Building? Building { get; set; }
-        public IEnumerable<FileName>? Files { get; set; }
-        public IEnumerable<Goal>? Goals { get; set; }
+        public List<FileName>? Files { get; set; } = new();
+        public List<Goal>? Goals { get; set; } = new();
+
+        
     }
 }

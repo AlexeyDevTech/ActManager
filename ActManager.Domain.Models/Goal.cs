@@ -8,7 +8,6 @@ namespace ActManager.Domain.Models
         private int _id;
         private string _title;
         private string? _description;
-        private IEnumerable<Act> _acts;
 
         public Goal()
         {
@@ -30,7 +29,7 @@ namespace ActManager.Domain.Models
             get => _description;
             set => SetProperty(ref _description, value);
         }
-        IEnumerable<Act>? Acts { get; set; }
+        public List<Act>? Acts { get; set; } = new();
 
     }
 }

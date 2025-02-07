@@ -9,6 +9,7 @@ using Prism.Modularity;
 using System.Windows;
 using ActManager.Core.Components.Views;
 using ActManager.Core.Components.ViewModels;
+using ActManager.Domain;
 
 namespace ActManager
 {
@@ -19,7 +20,13 @@ namespace ActManager
     {
         protected override Window CreateShell()
         {
+            var db_online = new ApplicationDbContext().DatabaseOnline();
+            if (!db_online)
+            {
+                MessageBox.Show(messageBoxText: "подключение к базе данных прошло неудачно", "Ошибка подключения к БД", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             return Container.Resolve<MainWindow>();
+            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
