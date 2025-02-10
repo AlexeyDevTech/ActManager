@@ -1,4 +1,5 @@
 ﻿using Prism.Mvvm;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActManager.Domain.Models
@@ -36,10 +37,15 @@ namespace ActManager.Domain.Models
 
     public enum GoalStatus : int
     {
+        [Description("Создана")]
         Created = 0,
+        [Description("В процессе")]
         InProgress = 1,
+        [Description("Отложена")]
         Pending = 2,
+        [Description("Завершена")]
         Finish = 3,
+        [Description("Закрыта")]
         Closed = 10
     }
 }
