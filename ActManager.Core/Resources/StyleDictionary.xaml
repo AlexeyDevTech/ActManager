@@ -11,7 +11,8 @@
     <Style TargetType="ScrollBar">
         <Setter Property="Width" Value="10"/>
         <Setter Property="Foreground" Value="#FFC0C0C0"/>
-        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Background" Value="#EEE"/>
+        <Setter Property="Margin" Value="5 0 0 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ScrollBar">
@@ -23,7 +24,7 @@
                                     <Thumb.Template>
                                         <ControlTemplate TargetType="Thumb">
                                             <Border 
-                                Background="#FF394466" 
+                                Background="#FFC5D0DE" 
                                 CornerRadius="7"
                                 Margin="0"
                                 HorizontalAlignment="Stretch" 

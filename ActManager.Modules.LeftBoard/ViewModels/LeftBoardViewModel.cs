@@ -48,6 +48,7 @@ namespace ActManager.Modules.LeftBoard.ViewModels
         Buildings = 3,
         Acts = 4,
         Documents = 5,
-        Settings = 6,
+        Customers = 6,
+        Settings = 7,
     }
 }

@@ -19,85 +19,137 @@
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <Style x:Key="ItemSettingButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="#CCC"/>
+            <Setter Property="Opacity" Value="0.15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                     Background="{TemplateBinding Background}" 
+                     BorderBrush="{TemplateBinding BorderBrush}" 
+                     BorderThickness="{TemplateBinding BorderThickness}" 
+                     CornerRadius="2"
+                     Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.9"/>
+                                <Setter Property="Background" Value="#CCC"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <conv:AlternationToBrushConverter x:Key="AlternationToBrushConverter"/>
     </UserControl.Resources>
-    <ScrollViewer>
+    
     <Grid d:Background="White">
     <Grid.RowDefinitions>
         <RowDefinition Height="25"/>
         <RowDefinition/>
     </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" Margin="0,0,17,0">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="#666"/>
+                        <Setter Property="Margin" Value="5 0 0 0"/>
+                        <Setter Property="FontSize" Value="16"/>
+                    </Style>
+                </Grid.Resources>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.6*"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="2.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
-                </Grid.ColumnDefinitions>
-                <!--<TextBlock Text="ID"/>-->
-                <TextBlock Text="Задача" Grid.Column="1"/>
-                <TextBlock Text="Описание" Grid.Column="2"/>
-                <TextBlock Text="Статус" Grid.Column="3"/>
-                <TextBlock Grid.Column="4"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                <TextBlock Text="ID"/>
+                <TextBlock Grid.Column="1" Text="ДАТА"/>
+                <TextBlock Text="ЗАДАЧА" Grid.Column="2"/>
+                <TextBlock Text="КЛИЕНТ" Grid.Column="3"/>
+                <TextBlock Text="ПРИОРИТЕТ" HorizontalAlignment="Center" Grid.Column="4"/>
+                <TextBlock Text="СТАТУС" Grid.Column="5" HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="6"/>
             </Grid>
-    <ItemsControl Grid.Row="1" x:Name="ToDoListControl" ItemsSource="{Binding Goals}" AlternationCount="2">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="ContentPresenter">
-                    <Setter Property="ContentControl.Background" Value="White"/>
-                    <Setter Property="ContentControl.FontSize" Value="16"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0"  Height="40" Name="ListEl">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.2*"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="2.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                        </Grid.ColumnDefinitions>
-                            <Border Grid.Column="0" BorderBrush="#999" BorderThickness="0 0 0.5 0">
-                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding ID}"/>
-                            </Border>
-                            <Border Grid.Column="1" BorderBrush="#999" BorderThickness="0.5 0 0.5 0">
-                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Text="{Binding Title}"/>
-                            </Border>
-                            <Border Grid.Column="2" BorderBrush="#999" BorderThickness="0.5 0 0.5 0">
-                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2" Text="{Binding Description}"/>
-                            </Border>
-                            <Border Grid.Column="3" BorderBrush="#999" BorderThickness="0.5 0 1 0">
-                                <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Column="3" Text="{Binding Status}"/>
-                            </Border>
-                            <!--<Grid Grid.Column="4">
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl  x:Name="ToDoListControl" ItemsSource="{Binding Goals}" AlternationCount="2">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="ContentControl.Background" Value="White"/>
+                        <Setter Property="ContentControl.FontSize" Value="14"/>
+                        <Setter Property="ContentControl.Foreground" Value="#444"/>
+                        <Setter Property="ContentControl.FontFamily" Value="Tahoma"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5,0,0,0"  Height="50" Name="ListEl">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.6*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0"></Button>
-                            <Button Grid.Column="1"></Button>
-                            <Button Grid.Column="2"></Button>
-                            </Grid>-->
-                    </Grid>
-                    <DataTemplate.Triggers>
-                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-                            <Setter Property="Background" Value="White" TargetName="ListEl"/>
-                        </Trigger>
-                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                            <Setter Property="Background" Value="WhiteSmoke" TargetName="ListEl"/>
-                        </Trigger>
-                    </DataTemplate.Triggers>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-       
+                            <TextBlock VerticalAlignment="Center"  Text="{Binding ID, StringFormat=#{0}}"/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="01.04.2025"/>
+                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}"/>
+                            <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="Заказчик 1"/>
+                            <TextBlock Grid.Column="4" VerticalAlignment="Center" TextAlignment="Center" Text="High"/>
+                            <TextBlock Grid.Column="5" VerticalAlignment="Center" TextAlignment="Right"  Text="{Binding Status}"/>
+                            <Grid Grid.Column="6" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button  Margin="11,11,0,11" Grid.Column="0" Style="{DynamicResource ItemSettingButton}" ToolTip="Отложить задачу">
+                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/pending-100.png" />
+                                </Button>
+                                <Button Margin="0,11" Grid.Column="1" Style="{DynamicResource ItemSettingButton}" ToolTip="Выполнить задачу">
+                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/done-100.png" />
+                                </Button>
+                                <Button Margin="0,11,11,11" Grid.Column="2" Style="{DynamicResource ItemSettingButton}" ToolTip="Закрыть задачу">
+                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/cancel-100.png" />
+                                </Button>
+                            </Grid>
+                            <Rectangle Grid.Column="0" Grid.ColumnSpan="7" Fill="#FFCCCCCC" Height="1" VerticalAlignment="Bottom"/>
+                        </Grid>
+                        <!--<DataTemplate.Triggers>
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                <Setter Property="Background" Value="White" TargetName="ListEl"/>
+                            </Trigger>
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                <Setter Property="Background" Value="WhiteSmoke" TargetName="ListEl"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>-->
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
-    </ScrollViewer>
+   
 </UserControl>

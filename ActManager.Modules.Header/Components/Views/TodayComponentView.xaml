@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ActManager.Modules.Header.Components.Views.TodayComponentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:local="clr-namespace:ActManager.Modules.Header.Components.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:ActManager.Modules.Header.Components.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:TodayComponentViewModel}"
+             d:DesignHeight="35" d:DesignWidth="295"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Border VerticalAlignment="Center" CornerRadius="10" Background="#FFDDE6F5">
+            <TextBlock Margin="16 5" Foreground="#333" FontSize="18" Text="{Binding ToDay}" TextAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</UserControl>

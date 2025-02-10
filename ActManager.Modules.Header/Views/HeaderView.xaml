@@ -38,10 +38,10 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="4">
-            <Border VerticalAlignment="Center" CornerRadius="10" Background="#FFDDE6F5" HorizontalAlignment="Right" Margin="0,0,20,0">
-                <TextBlock Margin="20 5" Foreground="#333" FontSize="18" Text="6 февраля 2025 г" TextAlignment="Center" VerticalAlignment="Center"/>
-            </Border>
-            
+            <Grid Height="35" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0">
+                <ContentControl prism:RegionManager.RegionName="HeaderTodayRegion"/>
+            </Grid>
+
         </Grid>
     </Grid>
 </UserControl>

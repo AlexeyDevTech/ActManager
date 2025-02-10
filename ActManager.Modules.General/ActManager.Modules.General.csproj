@@ -4,6 +4,22 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\cancel-100.png" />
+    <None Remove="Resources\done-100.png" />
+    <None Remove="Resources\orderDone-80.png" />
+    <None Remove="Resources\orderProgress-80.png" />
+    <None Remove="Resources\pending-100.png" />
+    <None Remove="Resources\totalOrder-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cancel-100.png" />
+    <Resource Include="Resources\done-100.png" />
+    <Resource Include="Resources\orderDone-80.png" />
+    <Resource Include="Resources\orderProgress-80.png" />
+    <Resource Include="Resources\pending-100.png" />
+    <Resource Include="Resources\totalOrder-40.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>

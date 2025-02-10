@@ -35,6 +35,7 @@
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
             </Grid>
             <Grid Grid.Row="1" Background="#FFE7E9EB">
+                <!--<Image Source="/Resources/bg.jpg" Stretch="Fill" Opacity="0.3"/>-->
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}"/>
             </Grid>
         </Grid>

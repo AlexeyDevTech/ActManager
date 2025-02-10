@@ -8,6 +8,7 @@
     <None Remove="Resources\building-80.png" />
     <None Remove="Resources\building.png" />
     <None Remove="Resources\calendar-80.png" />
+    <None Remove="Resources\customer-70.png" />
     <None Remove="Resources\doc-80.png" />
     <None Remove="Resources\loading-20.png" />
     <None Remove="Resources\male-user.png" />
@@ -31,6 +32,7 @@
     <Resource Include="Resources\building-80.png" />
     <Resource Include="Resources\building.png" />
     <Resource Include="Resources\calendar-80.png" />
+    <Resource Include="Resources\customer-70.png" />
     <Resource Include="Resources\doc-80.png" />
     <Resource Include="Resources\loading-20.png" />
     <Resource Include="Resources\male-user.png" />

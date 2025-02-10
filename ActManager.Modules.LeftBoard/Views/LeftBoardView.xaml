@@ -157,6 +157,35 @@
                                     <Setter Property="Foreground" Value="#777"/>
                                     <Setter Property="BorderBrush" Value="#777"/>
                                 </Trigger>
+                                <DataTrigger Binding="{Binding MenuState}" Value="6">
+                                    <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="CustomerMenuButtonStyle" BasedOn="{StaticResource ButtonMenuStyle}" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter Margin="0,5,0,5" />
+                                <Border x:Name="SelectBorder" Background="Transparent" Width="5" HorizontalAlignment="Right" Height="{TemplateBinding Height}"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#1D2326"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#454B4E"/>
+
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#777"/>
+                                    <Setter Property="BorderBrush" Value="#777"/>
+                                </Trigger>
                                 <DataTrigger Binding="{Binding MenuState}" Value="5">
                                     <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
                                 </DataTrigger>
@@ -186,7 +215,7 @@
                                     <Setter Property="Foreground" Value="#777"/>
                                     <Setter Property="BorderBrush" Value="#777"/>
                                 </Trigger>
-                                <DataTrigger Binding="{Binding MenuState}" Value="6">
+                                <DataTrigger Binding="{Binding MenuState}" Value="7">
                                     <Setter TargetName="SelectBorder" Property="Background" Value="White"  />
                                 </DataTrigger>
                             </ControlTemplate.Triggers>
@@ -288,7 +317,21 @@
                     </Grid>
                 </Button.Content>
             </Button>
-            <Button Grid.Row="4" Style="{DynamicResource DocumentMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="5">
+            <Button Grid.Row="4" Style="{DynamicResource CustomerMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="5">
+                <Button.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="/ActManager.Modules.LeftBoard;component/Resources/customer-70.png" SnapsToDevicePixels="True" Opacity="0.7" />
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="Клиенты" FontSize="14" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Grid>
+                </Button.Content>
+            </Button>
+            <Button Grid.Row="5" Style="{DynamicResource DocumentMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="6">
                 <Button.Content>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -304,7 +347,7 @@
             </Button>
             <Grid Grid.Row="5"></Grid>
             <Grid Grid.Row="6"></Grid>
-            <Button Grid.Row="7" Style="{DynamicResource SettingsMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="6">
+            <Button Grid.Row="7" Style="{DynamicResource SettingsMenuButtonStyle}" Command="{Binding SelectMenuCommand}" CommandParameter="7">
                 <Button.Content>
                     <Grid Grid.Row="7">
                         <Grid.RowDefinitions>
