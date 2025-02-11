@@ -63,7 +63,7 @@
                                 <RowDefinition Height="12"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="134" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Total order" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Всего задач" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="1">
@@ -101,7 +101,7 @@
                                 <RowDefinition Height="12"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="21" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Order on process" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Задач в процессе" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="1">
@@ -141,7 +141,7 @@
                                 <RowDefinition Height="12"/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="113" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Order done" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Задач закрыто" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="1">

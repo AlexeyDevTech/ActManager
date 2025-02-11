@@ -53,8 +53,38 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="PriorityTextStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Priority}" Value="1">
+                    <Setter Property="Foreground" Value="#FF88CC95"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Priority}" Value="2">
+                    <Setter Property="Foreground" Value="#FFAFC300"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Priority}" Value="3">
+                    <Setter Property="Foreground" Value="#FFC33C32"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ImagePriorityStyle" TargetType="Image">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Opacity" Value="0.5"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Priority}" Value="1">
+                    <Setter Property="Source" Value="/ActManager.Modules.General;component/Resources/low-priority-50.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Priority}" Value="2">
+                    <Setter Property="Source" Value="/ActManager.Modules.General;component/Resources/mid-priority-50.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Priority}" Value="3">
+                    <Setter Property="Source" Value="/ActManager.Modules.General;component/Resources/high-priority-50.png"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <conv:AlternationToBrushConverter x:Key="AlternationToBrushConverter"/>
         <conv:NameShortenerConverter x:Key="ShorterConverter"/>
+        <conv:EnumDescriptionConverter x:Key="EnumConverter"/>
     </UserControl.Resources>
     
     <Grid d:Background="White">
@@ -105,48 +135,7 @@
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <!--<Grid Margin="5,0,0,0"  Height="50" Name="ListEl">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.6*"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock VerticalAlignment="Center"  Text="{Binding ID, StringFormat=#{0}}"/>
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="01.04.2025"/>
-                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Title}"/>
-                            <TextBlock Grid.Column="3" VerticalAlignment="Center">
-                                <TextBlock.Text>
-                                    <MultiBinding Converter="{StaticResource ShorterConverter}">
-                                        <Binding Path="Customer.FirstName"/>
-                                        <Binding Path="Customer.SecondName"/>
-                                        <Binding Path="Customer.ThirdName"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
-                            <TextBlock Grid.Column="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding Priority}"/>
-                            <TextBlock Grid.Column="5" VerticalAlignment="Center" TextAlignment="Right"  Text="{Binding Status}"/>
-                            <Grid Grid.Column="6" HorizontalAlignment="Right">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Button  Margin="11,11,0,11" Grid.Column="0" Style="{DynamicResource ItemSettingButton}" ToolTip="Отложить задачу">
-                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/pending-100.png" />
-                                </Button>
-                                <Button Margin="0,11" Grid.Column="1" Style="{DynamicResource ItemSettingButton}" ToolTip="Выполнить задачу">
-                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/done-100.png" />
-                                </Button>
-                                <Button Margin="0,11,11,11" Grid.Column="2" Style="{DynamicResource ItemSettingButton}" ToolTip="Закрыть задачу">
-                                    <Image Margin="2" Source="/ActManager.Modules.General;component/Resources/cancel-100.png" />
-                                </Button>
-                            </Grid>
-                            <Rectangle Grid.Column="0" Grid.ColumnSpan="7" Fill="#FFCCCCCC" Height="1" VerticalAlignment="Bottom"/>
-                        </Grid>-->
+                        
                         <Grid Margin="5,0,0,0"  Height="50" Name="ListEl">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.6*"/>
@@ -169,7 +158,8 @@
                                     </MultiBinding>
                                 </TextBlock.Text>
                             </TextBlock>
-                            <TextBlock Grid.Column="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding Priority}"/>
+                            <!--<TextBlock Style="{DynamicResource PriorityTextStyle}" Grid.Column="4" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding Priority}"/>-->
+                            <Image Style="{DynamicResource ImagePriorityStyle}" Grid.Column="4"/>
                             <Grid Grid.Column="5" >
                                 <Border x:Name="StatusField">
                                     <Border.Resources>
@@ -194,7 +184,7 @@
 
                                         </Style>
                                     </Border.Resources>
-                                    <TextBlock Text="{Binding Status}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Status, Converter={StaticResource EnumConverter}}" TextAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </Grid>
                             <!--<TextBlock Grid.Column="5" VerticalAlignment="Center" TextAlignment="Right"  Text="{Binding Status}"/>-->

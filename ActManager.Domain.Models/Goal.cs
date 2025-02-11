@@ -58,11 +58,9 @@ namespace ActManager.Domain.Models
     public enum GoalPriority : int
     {
         None = 0,
-        Lowest = 1,
-        Low = 2,
-        Medium = 3,
-        High = 4,
-        Highest = 5,
+        Low = 1,
+        Medium = 2,
+        High = 3,
     }
     public enum GoalStatus : int
     {

@@ -6,6 +6,9 @@
   <ItemGroup>
     <None Remove="Resources\cancel-100.png" />
     <None Remove="Resources\done-100.png" />
+    <None Remove="Resources\high-priority-50.png" />
+    <None Remove="Resources\low-priority-50.png" />
+    <None Remove="Resources\mid-priority-50.png" />
     <None Remove="Resources\orderDone-80.png" />
     <None Remove="Resources\orderProgress-80.png" />
     <None Remove="Resources\pending-100.png" />
@@ -14,6 +17,9 @@
   <ItemGroup>
     <Resource Include="Resources\cancel-100.png" />
     <Resource Include="Resources\done-100.png" />
+    <Resource Include="Resources\high-priority-50.png" />
+    <Resource Include="Resources\low-priority-50.png" />
+    <Resource Include="Resources\mid-priority-50.png" />
     <Resource Include="Resources\orderDone-80.png" />
     <Resource Include="Resources\orderProgress-80.png" />
     <Resource Include="Resources\pending-100.png" />
