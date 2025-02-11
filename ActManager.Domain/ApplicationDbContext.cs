@@ -10,6 +10,8 @@ namespace ActManager.Domain
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Act> Acts { get; set; }
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerAttribute> CustomerAttributes { get; set; }
         public DbSet<FileName> Filenames { get; set; }
 
 
@@ -35,6 +37,8 @@ namespace ActManager.Domain
             modelBuilder.Entity<Building>().Navigation(e => e.AddressInst).AutoInclude();
 
             modelBuilder.Entity<Goal>().Navigation(e => e.Acts).AutoInclude();
+            modelBuilder.Entity<Goal>().Navigation(e => e.Customer).AutoInclude();
+            modelBuilder.Entity<Customer>().Navigation(e => e.Attributes).AutoInclude();
         }
         public bool DatabaseOnline() => Database.CanConnect();
     }

@@ -1,6 +1,7 @@
 ﻿using Prism.Mvvm;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ActManager.Domain.Models
 {
@@ -9,6 +10,9 @@ namespace ActManager.Domain.Models
         private int _id;
         private string _title;
         private string? _description;
+        private GoalStatus _status;
+        private GoalPriority _priority;
+        private Customer? _customer;
 
         public Goal()
         {
@@ -30,11 +34,36 @@ namespace ActManager.Domain.Models
             get => _description;
             set => SetProperty(ref _description, value);
         }
-        public GoalStatus Status { get; set; }
+        public GoalStatus Status
+        {
+            get => _status;
+            set => SetProperty(ref _status, value);
+        }
+        public GoalPriority Priority
+        {
+            get => _priority;
+            set => SetProperty(ref _priority, value);
+        }
+        [ForeignKey("CustomerID")]
+        public Customer? Customer
+        {
+            get => _customer;
+            set => SetProperty(ref _customer, value);
+        }
         public List<Act>? Acts { get; set; } = new();
 
     }
 
+
+    public enum GoalPriority : int
+    {
+        None = 0,
+        Lowest = 1,
+        Low = 2,
+        Medium = 3,
+        High = 4,
+        Highest = 5,
+    }
     public enum GoalStatus : int
     {
         [Description("Создана")]
