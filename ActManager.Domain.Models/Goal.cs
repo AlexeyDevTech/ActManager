@@ -13,6 +13,7 @@ namespace ActManager.Domain.Models
         private GoalStatus _status;
         private GoalPriority _priority;
         private Customer? _customer;
+        private DateTime _date;
 
         public Goal()
         {
@@ -28,6 +29,11 @@ namespace ActManager.Domain.Models
         {
             get => _title;
             set => SetProperty(ref _title, value);
+        }
+        public DateTime Date
+        {
+            get => _date;
+            set => SetProperty(ref _date, value);
         }
         public string? Description
         {

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ActManager.Modules.General.ViewModels
+namespace ActManager.Modules.MainMenu.ViewModels
 {
     public class MainMenuViewModel : BindableBase, INavigationAware
     {

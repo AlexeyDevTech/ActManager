@@ -13,10 +13,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+    <ProjectReference Include="..\ActManager.Modules.CalendarMenu\ActManager.Modules.CalendarMenu.csproj" />
     <ProjectReference Include="..\ActManager.Modules.General\ActManager.Modules.General.csproj" />
     <ProjectReference Include="..\ActManager.Modules.Header\ActManager.Modules.Header.csproj" />
     <ProjectReference Include="..\ActManager.Modules.InfoBoard\ActManager.Modules.InfoBoard.csproj" />
     <ProjectReference Include="..\ActManager.Modules.LeftBoard\ActManager.Modules.LeftBoard.csproj" />
+    <ProjectReference Include="..\ActManager.Modules.MainMenu\ActManager.Modules.MainMenu.csproj" />
     <ProjectReference Include="..\ActManager.Modules.RightBoard\ActManager.Modules.RightBoard.csproj" />
   </ItemGroup>
   <ItemGroup>

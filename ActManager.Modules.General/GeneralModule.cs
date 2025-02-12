@@ -21,13 +21,13 @@ namespace ActManager.Modules.General
         {
             
             _regionManager.RegisterViewWithRegion(RegionNames.ContentRegion, containerProvider.Resolve<GeneralView>);
-            _regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
+            //_regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
             _regionManager.RegisterViewWithRegion("MainMenuToDoListRegion", containerProvider.Resolve<ToDoListComponentView>);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<MainMenuView>("MainMenu");
+            //containerRegistry.RegisterForNavigation<MainMenuView>("MainMenu");
             //containerRegistry.RegisterForNavigation<>
         }
     }

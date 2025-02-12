@@ -10,6 +10,9 @@ using System.Windows;
 using ActManager.Core.Components.Views;
 using ActManager.Core.Components.ViewModels;
 using ActManager.Domain;
+using ActManager.Modules.MainMenu;
+using System.Globalization;
+using ActManager.Modules.CalendarMenu;
 
 namespace ActManager
 {
@@ -38,6 +41,8 @@ namespace ActManager
         {
             base.ConfigureModuleCatalog(moduleCatalog);
             moduleCatalog.AddModule<GeneralModule>();
+            moduleCatalog.AddModule<MainMenuModule>();
+            moduleCatalog.AddModule<CalendarMenuModule>();
             moduleCatalog.AddModule<InfoBoardModule>();
             moduleCatalog.AddModule<HeaderModule>();
             moduleCatalog.AddModule<LeftBoardModule>();

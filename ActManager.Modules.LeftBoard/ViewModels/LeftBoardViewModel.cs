@@ -38,6 +38,29 @@ namespace ActManager.Modules.LeftBoard.ViewModels
         {
             int param = Int32.Parse((string)obj);
             MenuState = (LeftBoardMenuState)param;
+            switch (MenuState)
+            {
+                case LeftBoardMenuState.None:
+                    break;
+                case LeftBoardMenuState.MainMenu:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "MainMenu");
+                    break;
+                case LeftBoardMenuState.Calendar:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "Calendar");
+                    break;
+                case LeftBoardMenuState.Buildings:
+                    break;
+                case LeftBoardMenuState.Acts:
+                    break;
+                case LeftBoardMenuState.Documents:
+                    break;
+                case LeftBoardMenuState.Customers:
+                    break;
+                case LeftBoardMenuState.Settings:
+                    break;
+                default:
+                    break;
+            }
         }
     }
     public enum LeftBoardMenuState : int

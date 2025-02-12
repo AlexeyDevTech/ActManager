@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ActManager.Modules.General.Views
+namespace ActManager.Modules.MainMenu.Views
 {
     /// <summary>
     /// Interaction logic for MainMenuView
