@@ -5,11 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="704" d:DesignWidth="1050"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
+    <Grid d:Background="#FFE7E9EB">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+        </Grid.Resources>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -18,56 +24,80 @@
 
             <!-- Заголовок с месяцем и кнопками -->
             <StackPanel Orientation="Horizontal" Margin="10">
-                <Button Content="◀" Command="{Binding PreviousMonthCommand}" />
+                <Button Content="◀" Command="{Binding PreviousMonthCommand}" Style="{StaticResource MaterialDesignFlatButton}" />
                 <TextBlock Text="{Binding CurrentMonth}" FontSize="18" FontWeight="Bold" 
                VerticalAlignment="Center" Margin="10,0"/>
-                <Button Content="▶" Command="{Binding NextMonthCommand}" />
+                <Button Content="▶" Command="{Binding NextMonthCommand}"  Style="{StaticResource MaterialDesignFlatButton}"/>
             </StackPanel>
 
             <!-- Таблица с днями недели и днями месяца -->
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+                
                 <!-- Дни недели -->
-                <UniformGrid Columns="7">
-                    <TextBlock Text="Пн" FontWeight="Bold" TextAlignment="Center"/>
-                    <TextBlock Text="Вт" FontWeight="Bold" TextAlignment="Center"/>
-                    <TextBlock Text="Ср" FontWeight="Bold" TextAlignment="Center"/>
-                    <TextBlock Text="Чт" FontWeight="Bold" TextAlignment="Center"/>
-                    <TextBlock Text="Пт" FontWeight="Bold" TextAlignment="Center"/>
-                    <TextBlock Text="Сб" FontWeight="Bold" Foreground="Blue" TextAlignment="Center"/>
-                    <TextBlock Text="Вс" FontWeight="Bold" Foreground="Red" TextAlignment="Center"/>
-                </UniformGrid>
+                <Border Background="#FFD3DCEB" CornerRadius="4" Margin="20 0">
+                    <UniformGrid Columns="7" Margin="20,0,20,0">
+                        <TextBlock Text="Пн" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="Вт" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="Ср" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="Чт" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="Пт" FontWeight="Bold" TextAlignment="Center"/>
+                        <TextBlock Text="Сб" FontWeight="Bold" Foreground="Blue" TextAlignment="Center"/>
+                        <TextBlock Text="Вс" FontWeight="Bold" Foreground="Red" TextAlignment="Center"/>
+                    </UniformGrid>
+                </Border>
+                
 
                 <!-- Дни месяца -->
-                <ItemsControl Grid.Row="1" ItemsSource="{Binding Days}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="7"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Gray" BorderThickness="0.5" Padding="5" Margin="3">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Day}" FontWeight="Bold"/>
-                                    <ItemsControl ItemsSource="{Binding Events}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Border Background="LightBlue" Padding="2" Margin="2">
-                                                    <TextBlock Text="{Binding Title}" FontSize="12"/>
+                <Border Margin="20,0,20,20" Grid.Row="2">
+                    <ItemsControl ItemsSource="{Binding Days}">
+                        <ItemsControl.Resources>
+                            <Style TargetType="ItemsControl">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ItemsControl">
+                                            <Border Background="White" CornerRadius="8" Padding="10">
+                                                <Border CornerRadius="12" >
+                                                    <Border Margin="10" Background="#FFEAEAEA" >
+                                                        <ItemsPresenter />
+                                                    </Border>
                                                 </Border>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ItemsControl.Resources>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Panel.ZIndex="8" Columns="7" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="5" Margin="0.5"  Background="White" >
+                                    <StackPanel >
+                                        <TextBlock Text="{Binding Day}" FontWeight="Bold"/>
+                                        <ItemsControl ItemsSource="{Binding Events}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Padding="2" Margin="2" >
+                                                        <TextBlock Text="{Binding Title}" FontSize="12"/>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
             </Grid>
         </Grid>
     </Grid>

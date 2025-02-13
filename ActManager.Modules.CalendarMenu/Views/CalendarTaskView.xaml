@@ -12,12 +12,15 @@
     <Grid d:Background="#FFE7E9EB">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="450"/>
         </Grid.ColumnDefinitions>
-        <Grid Background="White" Margin="20">
+        <Grid  Margin="20">
             <ContentControl prism:RegionManager.RegionName="CalendarComponentRegion"/>
         </Grid>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" Margin="0">
+            <Border CornerRadius="0" Background="White">
+                <ContentControl prism:RegionManager.RegionName="DayTaskComponentRegion"/>
+            </Border>
             
         </Grid>
     </Grid>
