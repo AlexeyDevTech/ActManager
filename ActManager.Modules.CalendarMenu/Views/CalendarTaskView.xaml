@@ -17,9 +17,60 @@
         <Grid  Margin="20">
             <ContentControl prism:RegionManager.RegionName="CalendarComponentRegion"/>
         </Grid>
-        <Grid Grid.Column="1" Margin="0">
-            <Border Background="White">
-                <ContentControl prism:RegionManager.RegionName="DayTaskComponentRegion"/>
+        <Grid Grid.Column="1" Margin="0 50 40 40">
+            <Border BorderBrush="DarkGray" CornerRadius="16" Background="White" BorderThickness="0,0,0,0">
+                <!--<ContentControl prism:RegionManager.RegionName="DayTaskComponentRegion"/>-->
+                <StackPanel Margin="20" Orientation="Vertical">
+                    <TextBlock FontFamily="Verdana" Text="Дела на 14 февраля" FontWeight="Bold" FontSize="24"/>
+                    <Border BorderThickness="1" BorderBrush="DarkGray" Margin="-20 15" Height="1"/>
+                    <Border Background="White" Height="150" CornerRadius="16" Margin="0 0 0 20" Padding="15">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#EEE" ShadowDepth="5" Direction="270"></DropShadowEffect>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Построить дом" FontFamily="Verdana" FontWeight="Bold" FontSize="20" />
+                            <TextBlock Grid.Row="1" Text="пупупуууу" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу" FontFamily="Verdana" FontSize="14"/>
+                        </Grid>
+                    </Border>
+                    <Border Background="White" Height="150" CornerRadius="16" Margin="0 0 0 20" Padding="15">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#EEE" ShadowDepth="5" Direction="270"></DropShadowEffect>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Посадить дерево" FontFamily="Verdana" FontWeight="Bold" FontSize="20" />
+                            <TextBlock Grid.Row="1" Text="пупупуууу" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу" FontFamily="Verdana" FontSize="14"/>
+                        </Grid>
+                    </Border>
+                    <Border Background="White" Height="150" CornerRadius="16" Margin="0 0 0 20" Padding="15">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#EEE" ShadowDepth="5" Direction="270"></DropShadowEffect>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Вырастить сына" FontFamily="Verdana" FontWeight="Bold" FontSize="20" />
+                            <TextBlock Grid.Row="1" Text="пупупуууу" FontFamily="Verdana" FontSize="16"/>
+                            <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу пупупуууу" FontFamily="Verdana" FontSize="14"/>
+                        </Grid>
+                    </Border>
+
+
+                </StackPanel>
             </Border>
             
         </Grid>

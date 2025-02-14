@@ -29,10 +29,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="#FFF1F3F5">
-                <Grid.Effect>
-                    <DropShadowEffect Direction="10" BlurRadius="10" ShadowDepth="2"/>
-                </Grid.Effect>
-                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
+                <Border BorderBrush="DarkGray" BorderThickness="0,0,0,1">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
+                </Border>
+                
             </Grid>
             <Grid Grid.Row="1" Background="#FFE7E9EB">
                 <!--<Image Source="/Resources/bg.jpg" Stretch="Fill" Opacity="0.3"/>-->
