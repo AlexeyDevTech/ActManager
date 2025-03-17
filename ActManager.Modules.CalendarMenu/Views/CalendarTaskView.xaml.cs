@@ -7,6 +7,7 @@ namespace ActManager.Modules.CalendarMenu.Views
     /// </summary>
     public partial class CalendarTaskView : UserControl
     {
+     
         public CalendarTaskView()
         {
             InitializeComponent();

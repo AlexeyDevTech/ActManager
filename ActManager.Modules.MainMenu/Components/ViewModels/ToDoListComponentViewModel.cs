@@ -25,7 +25,7 @@ namespace ActManager.Modules.MainMenu.Components.ViewModels
             using(var rep = new GoalRepository())
             {
                 var list = rep.GetAll();
-                foreach (var item in list)
+                foreach (var item in list)  
                 {
                     Goals.Add(item);
                 }

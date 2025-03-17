@@ -49,6 +49,7 @@ namespace ActManager.Modules.LeftBoard.ViewModels
                     regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "Calendar");
                     break;
                 case LeftBoardMenuState.Buildings:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "Buildings");
                     break;
                 case LeftBoardMenuState.Acts:
                     break;

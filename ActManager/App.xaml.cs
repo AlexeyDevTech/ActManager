@@ -13,6 +13,7 @@ using ActManager.Domain;
 using ActManager.Modules.MainMenu;
 using System.Globalization;
 using ActManager.Modules.CalendarMenu;
+using ActManager.Modules.Buildings;
 
 namespace ActManager
 {
@@ -43,6 +44,7 @@ namespace ActManager
             moduleCatalog.AddModule<GeneralModule>();
             moduleCatalog.AddModule<MainMenuModule>();
             moduleCatalog.AddModule<CalendarMenuModule>();
+            moduleCatalog.AddModule<BuildingsModule>();
             moduleCatalog.AddModule<InfoBoardModule>();
             moduleCatalog.AddModule<HeaderModule>();
             moduleCatalog.AddModule<LeftBoardModule>();

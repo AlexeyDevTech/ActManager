@@ -14,6 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+    <ProjectReference Include="..\ActManager.Modules.Buildings\ActManager.Modules.Buildings.csproj" />
     <ProjectReference Include="..\ActManager.Modules.CalendarMenu\ActManager.Modules.CalendarMenu.csproj" />
     <ProjectReference Include="..\ActManager.Modules.General\ActManager.Modules.General.csproj" />
     <ProjectReference Include="..\ActManager.Modules.Header\ActManager.Modules.Header.csproj" />
