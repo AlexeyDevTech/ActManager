@@ -21,6 +21,7 @@ namespace ActManager.Modules.Buildings
         {
             //register navigation...
             containerRegistry.RegisterForNavigation<BuildingMenuView>("Buildings");
+
         }
     }
 }

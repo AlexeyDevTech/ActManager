@@ -4,9 +4,26 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\building-100.png" />
+    <None Remove="Resources\building-20.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\building-100.png" />
+    <Resource Include="Resources\building-20.png" />
+    <Resource Include="Resources\cancel-100.png" />
+    <Resource Include="Resources\done-100.png" />
+    <Resource Include="Resources\high-priority-50.png" />
+    <Resource Include="Resources\low-priority-50.png" />
+    <Resource Include="Resources\mid-priority-50.png" />
+    <Resource Include="Resources\orderDone-80.png" />
+    <Resource Include="Resources\orderProgress-80.png" />
+    <Resource Include="Resources\pending-100.png" />
+    <Resource Include="Resources\totalOrder-40.png" />
   </ItemGroup>
 </Project>
