@@ -18,7 +18,7 @@
                 <Setter.Value>
                     <DataTemplate>
                         <Border x:Name="Border"
-                                Background="White"
+                                Background="Transparent"
                                 BorderBrush="Gray"
                                 BorderThickness="1"
                                 Margin="2">
@@ -45,7 +45,30 @@
                 <helpers:SelectableItemsControl Margin="10" ItemsSource="{Binding Buildings}" SelectedItem="{Binding SelBuilding}" ItemContainerStyle="{StaticResource SelectableItemStyle}">
                     <helpers:SelectableItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Name}" Padding="5"/>
+                            <Border x:Name="Border"
+                                    Background="White"
+                                    BorderThickness="1"
+                                    CornerRadius="10"
+                                    Margin="5" Height="60">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="#FFE6E6E6" ShadowDepth="3" Direction="270"></DropShadowEffect>
+                            </Border.Effect>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="/ActManager.Modules.Buildings;component/Resources/building-100.png" Width="20" Height="20" />
+                                    <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding Name}" Padding="5" FontSize="18"/>
+                                </Grid>
+                                
+                            </Border>
+                            <DataTemplate.Triggers>
+                                <Trigger Property="helpers:SelectableItemsControl.IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="#FFF5F5FF" />
+                                    <!--<Setter TargetName="Border" Property="BorderBrush" Value="Blue" />-->
+                                </Trigger>
+                            </DataTemplate.Triggers>
                         </DataTemplate>
                     </helpers:SelectableItemsControl.ItemTemplate>
                 </helpers:SelectableItemsControl>
@@ -66,7 +89,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding SelectedBuilding.Address}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding SelBuilding.AddressInst.Street}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -83,11 +106,11 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:"/>
-                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelectedBuilding.Name}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SelBuilding.Name}"/>
                         <TextBlock Grid.Row="1" Grid.Column="0" Text="Number of floors:"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedBuilding.Floors}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="2"/>
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Construction year:"/>
-                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedBuilding.ConstructionYear}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="1969"/>
                     </Grid>
                 </Border>
             </Grid>

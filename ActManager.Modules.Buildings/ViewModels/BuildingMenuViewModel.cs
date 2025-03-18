@@ -13,9 +13,13 @@ namespace ActManager.Modules.Buildings.ViewModels
     public class BuildingMenuViewModel : BindableBase, INavigationAware
 	  {
         private ObservableCollection<Building> _buildings;
+        private Building _selBuilding;
 
-
-
+        public Building SelBuilding
+        {
+            get => _selBuilding;
+            set => SetProperty(ref _selBuilding, value);
+        }
         public ObservableCollection<Building> Buildings
         {
             get => _buildings;
