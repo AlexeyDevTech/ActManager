@@ -19,6 +19,11 @@ namespace ActManager.Modules.MainMenu
         {
             _regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
             _regionManager.RegisterViewWithRegion("MainMenuToDoListRegion", containerProvider.Resolve<ToDoListComponentView>);
+            //head items
+            _regionManager.RegisterViewWithRegion("MainMenuHeadItem1", containerProvider.Resolve<TotalCashHeadItemView>);
+            _regionManager.RegisterViewWithRegion("MainMenuHeadItem2", containerProvider.Resolve<TaxCashHeadItemView>);
+            _regionManager.RegisterViewWithRegion("MainMenuHeadItem3", containerProvider.Resolve<TotalCostHeadItemView>);
+
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

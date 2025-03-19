@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActManager.Modules.Calendar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActManager.Modules.Buildings", "ActManager.Modules.Buildings\ActManager.Modules.Buildings.csproj", "{D88B544D-7A15-43AA-847C-EE621C2B47D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActManager.Events", "AcrManager.Events\ActManager.Events.csproj", "{F51BAAFC-9464-445A-9B17-407775C50B3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{D88B544D-7A15-43AA-847C-EE621C2B47D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D88B544D-7A15-43AA-847C-EE621C2B47D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D88B544D-7A15-43AA-847C-EE621C2B47D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51BAAFC-9464-445A-9B17-407775C50B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51BAAFC-9464-445A-9B17-407775C50B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51BAAFC-9464-445A-9B17-407775C50B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51BAAFC-9464-445A-9B17-407775C50B3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

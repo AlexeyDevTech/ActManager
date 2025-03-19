@@ -14,6 +14,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ActManager.Core;component/Resources/StyleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <GridLength x:Key="HorizontalMarginWidth">0.2*</GridLength>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid d:Background="#FFE7E9EB">
@@ -33,138 +34,23 @@
                 </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Background="#FF0A1533" CornerRadius="20" Margin="12 11">
-                            <Image Width="40" Height="40" Source="/ActManager.Modules.General;component/Resources/totalOrder-40.png" Stretch="Fill" />
-                        </Border>
-                        <Grid Grid.Column="1" Grid.ColumnSpan="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="12"/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition Height="12"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="134" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Всего задач" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Rectangle Grid.Column="0" Grid.ColumnSpan="4" Height="0.5" VerticalAlignment="Top" Margin="12 0" Fill="#ccc"/>
-                    </Grid>
-                </Grid>
-            </Border>
-            <Border Grid.Column="2">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Background="#FF0A1533" CornerRadius="20" Margin="12 11">
-                            <Image Width="32" Height="40" Source="/ActManager.Modules.General;component/Resources/orderProgress-80.png" Stretch="Fill" />
-                        </Border>
-                        <Grid Grid.Column="1" Grid.ColumnSpan="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="12"/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition Height="12"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="21" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Задач в процессе" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Rectangle Grid.Column="0" Grid.ColumnSpan="4" Height="0.5" VerticalAlignment="Top" Margin="12 0" Fill="#ccc"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Border>
-            <Border Grid.Column="3">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="40"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Border Background="#FF0A1533" CornerRadius="20" Margin="12 11">
-                            <Image Width="40" Height="40" Source="/ActManager.Modules.General;component/Resources/orderDone-80.png" />
-                        </Border>
-                        <Grid Grid.Column="1" Grid.ColumnSpan="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="12"/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition Height="12"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="113" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                            <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Задач закрыто" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Rectangle Grid.Column="0" Grid.ColumnSpan="4" Height="0.5" VerticalAlignment="Top" Margin="12 0" Fill="#ccc"/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Border>
+            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="MainMenuHeadItem1"/>
+            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="MainMenuHeadItem2"/>
+            <ContentControl Grid.Column="3" prism:RegionManager.RegionName="MainMenuHeadItem3"/>
         </Grid>
         <Grid Grid.Row="3" x:Name="ListMenuBoard">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
             </Grid.ColumnDefinitions>
             <Border Margin="10 0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="White" CornerRadius="20">
                 <Grid Margin="20">

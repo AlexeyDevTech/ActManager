@@ -8,9 +8,12 @@
     <None Remove="Resources\building-20.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
+    <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcrManager.Events\ActManager.Events.csproj" />
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -25,5 +28,9 @@
     <Resource Include="Resources\orderProgress-80.png" />
     <Resource Include="Resources\pending-100.png" />
     <Resource Include="Resources\totalOrder-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Resources\" />
+    <Folder Include="Components\Helpers\" />
   </ItemGroup>
 </Project>
