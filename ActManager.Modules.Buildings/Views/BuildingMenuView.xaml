@@ -98,7 +98,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-                <ContentControl prism:RegionManager.RegionName="BuildingMapRegion"/>
+                <Border Background="White" Grid.Column="0" Margin="10,10,0,10" CornerRadius="15" ClipToBounds="True">
+                    <ContentControl prism:RegionManager.RegionName="BuildingMapRegion"/>
+                </Border>
                 <Border Grid.Column="1" Background="White" Margin="10,10,20,10" CornerRadius="15">
                     <Grid>
                         <Grid.RowDefinitions>

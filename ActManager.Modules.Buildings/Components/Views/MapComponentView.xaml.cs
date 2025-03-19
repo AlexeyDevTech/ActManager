@@ -10,6 +10,7 @@ namespace ActManager.Modules.Buildings.Components.Views
         public MapComponentView()
         {
             InitializeComponent();
+            MapControl.ShowCenter = true;
         }
     }
 }

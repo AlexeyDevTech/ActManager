@@ -36,8 +36,7 @@ namespace ActManager.Modules.Buildings.Components.ViewModels
             _eventAggregator = eventAggregator;
             MapProvider = OpenStreetMapProvider.Instance;
             MapPosition = new PointLatLng(57.591468, 39.862795);
-            ZoomLevel = 15;
-
+            ZoomLevel = 16;
             Initialize();
         }
 

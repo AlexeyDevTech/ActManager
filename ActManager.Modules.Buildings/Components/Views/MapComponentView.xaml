@@ -20,6 +20,6 @@
                           MaxZoom="19"
                           MinZoom="10"
                           CanDragMap="True"
-                          MouseWheelZoomEnabled="True" />
+                          MouseWheelZoomEnabled="True" MouseWheelZoomType="ViewCenter" />
     </Grid>
 </UserControl>
