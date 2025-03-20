@@ -26,7 +26,7 @@ namespace ActManager.Domain.Models
             get => _id;
             set => SetProperty(ref _id, value);
         }
-        [ForeignKey("CustomrerID")]
+        [ForeignKey("CustomerID")]
         public Customer Customer
         {
             get => _customer;
