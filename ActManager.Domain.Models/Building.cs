@@ -29,5 +29,6 @@ namespace ActManager.Domain.Models
             get => _acts;
             set => SetProperty(ref _acts, value);
         }
+        public IEnumerable<Property> Properties { get; set; }
     }
 }

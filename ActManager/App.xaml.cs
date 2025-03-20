@@ -14,6 +14,7 @@ using ActManager.Modules.MainMenu;
 using System.Globalization;
 using ActManager.Modules.CalendarMenu;
 using ActManager.Modules.Buildings;
+using ActManager.Domain.Repositories;
 
 namespace ActManager
 {
@@ -36,6 +37,25 @@ namespace ActManager
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<SelectBuildingMainView, SelectBuildingMainViewModel>("SelectBuilding");
+
+            //Repositories...
+            containerRegistry.Register<IActRepository, ActRepository>();
+            containerRegistry.Register<IAddressRepository, AddressRepository>();
+            containerRegistry.Register<IAnalyticRepository, AnalyticRepository>();
+            containerRegistry.Register<IBankTransactionRepository, BankTransactionRepository>();
+            containerRegistry.Register<IBuildingRepository, BuildingRepository>();
+            containerRegistry.Register<IContractRepository, ContractRepository>();
+            containerRegistry.Register<IContractTemplateRepository, ContractTemplateRepository>();
+            containerRegistry.Register<ICustomerRepository, CustomerRepository>();
+            containerRegistry.Register<ICustomerAttributeRepository, CustomerAttributeRepository>();
+            containerRegistry.Register<IExpenseRepository, ExpenseRepository>();
+            containerRegistry.Register<IFileNameRepository, FileNameRepository>();
+            containerRegistry.Register<IGoalRepository, GoalRepository>();
+            containerRegistry.Register<INotificationRepository, NotificationRepository>();
+            containerRegistry.Register<IPaymentRepository, PaymentRepository>();
+            containerRegistry.Register<IPropertyRepository, PropertyRepository>();
+            containerRegistry.Register<ITaxRepository, TaxRepository>();
+            containerRegistry.Register<IUserRepository, UserRepository>();
         }
         
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)

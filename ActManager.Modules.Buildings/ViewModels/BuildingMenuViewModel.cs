@@ -1,4 +1,5 @@
-﻿using ActManager.Domain.Models;
+﻿using ActManager.Domain;
+using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
 using ActManager.Events.Buildings;
 using Prism.Commands;
@@ -36,11 +37,19 @@ namespace ActManager.Modules.Buildings.ViewModels
         public BuildingMenuViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
-            using(var rep = new BuildingsRepository())
+            //using(var rep = new BuildingsRepository())
+            //{
+            //    Buildings = new ObservableCollection<Building>();
+            //     var r = rep.GetAll();
+            //    foreach(var item in r)
+            //        Buildings.Add(item);
+            //}
+            using (var db = new ApplicationDbContext())
             {
+                var rep = new BuildingRepository(db);
                 Buildings = new ObservableCollection<Building>();
-                 var r = rep.GetAll();
-                foreach(var item in r)
+                var r = rep.GetAll();
+                foreach (var item in r)
                     Buildings.Add(item);
             }
         }

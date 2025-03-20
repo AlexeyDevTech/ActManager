@@ -7,51 +7,18 @@ using System.Threading.Tasks;
 
 namespace ActManager.Domain.Repositories
 {
-    public class GoalRepository : IRepository<Goal>
+    public interface IGoalRepository : IRepository<Goal>
     {
-        private ApplicationDbContext db;
+        IEnumerable<Goal> GetByCustomerId(int customerId);
+    }
 
-        public GoalRepository()
-        {
-          db = new ApplicationDbContext();
-        }
+    public class GoalRepository : Repository<Goal>, IGoalRepository
+    {
+        public GoalRepository(ApplicationDbContext context) : base(context) { }
 
-        public void Create(Goal item)
+        public IEnumerable<Goal> GetByCustomerId(int customerId)
         {
-            db.Add(item);
-            Save();
-        }
-
-        public void Delete(Goal item)
-        {
-            var res = db.Goals.First(x => x.ID == item.ID);
-            db.Goals.Remove(res);
-            Save();
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-
-        public IEnumerable<Goal> GetAll()
-        {
-            return db.Goals.ToList();
-        }
-
-        public Goal GetItem(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
-        }
-
-        public void Update(Goal item)
-        {
-            throw new NotImplementedException();
+            return _entities.Where(g => g.Customer.ID == customerId).ToList();
         }
     }
 }
