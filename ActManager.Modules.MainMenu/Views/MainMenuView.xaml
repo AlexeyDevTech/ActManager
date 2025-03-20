@@ -6,7 +6,7 @@
              xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="704" d:DesignWidth="1400"
+             d:DesignHeight="1704" d:DesignWidth="1400"
              xmlns:prism="http://prismlibrary.com/"             
              prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
@@ -14,6 +14,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ActManager.Core;component/Resources/StyleDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="NegativeProp" Color="#FFC19999"/>
+            <SolidColorBrush x:Key="PositiveLightColor" Color="#FFC1DFC1"/>
+            <SolidColorBrush x:Key="PositiveColor" Color="#FF99C199"/>
+            <SolidColorBrush x:Key="PositiveAccentColor" Color="#FF49AD49"/>
             <GridLength x:Key="HorizontalMarginWidth">0.2*</GridLength>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -22,6 +26,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="140"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="250"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="250"/>
                 <RowDefinition Height="20"/>
@@ -84,9 +90,57 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="Уведомления" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Уведомления" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                                <Border Grid.Column="1" Grid.RowSpan="1" CornerRadius="16" Background="#FFE7F0FF" HorizontalAlignment="Left" Padding="10,0" Margin="15,0">
+                                    <Grid>
+                                        <TextBlock Grid.Column="0" Text="99" FontFamily="Tahoma" Foreground="#FF465AB9" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
                             <TextBlock Grid.Row="1" Text="Будьте в курсе новостей" FontFamily="Tahoma" Foreground="#999" FontSize="16" VerticalAlignment="Center"/>
-                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30" Style="{DynamicResource VioletButtonStyle}">
+                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" >
+                                        <Setter Property="Background" Value="#FFE7F0FF"/>
+
+                                        <Setter Property="Margin" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="0.5"/>
+                                        <Setter Property="BorderBrush" Value="#CCC"/>
+                                        <Setter Property="Opacity" Value="0.6"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border 
+                                                            Background="{TemplateBinding Background}" 
+                                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                                            CornerRadius="8"
+                                                            Padding="{TemplateBinding Padding}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9"/>
+                                                            <Setter Property="BorderThickness" Value="1"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="1"/>
+                                                            <Setter Property="Background" Value="#FFD3DCEB"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Opacity" Value="0.2"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
                                 <Grid>
                                     <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Фильтр уведомлений" Foreground="#FF465AB9" />
                                 </Grid>
@@ -96,7 +150,94 @@
 
                 </Border>
             </Grid>
-            <Grid Grid.Row="5" x:Name="ListMenuBoard">
+            <Grid Grid.Row="5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="10 0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="White" CornerRadius="20">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="0,0,0,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Предстоящие платежи" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="Не забудьте о важном" FontFamily="Tahoma" Foreground="#999" FontSize="16" VerticalAlignment="Center"/>
+                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" >
+                                        <Setter Property="Background" Value="#FFE7F0FF"/>
+
+                                        <Setter Property="Margin" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="0.5"/>
+                                        <Setter Property="BorderBrush" Value="#CCC"/>
+                                        <Setter Property="Opacity" Value="0.6"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border 
+                                                 Background="{TemplateBinding Background}" 
+                                                 BorderBrush="{TemplateBinding BorderBrush}" 
+                                                 BorderThickness="{TemplateBinding BorderThickness}" 
+                                                 CornerRadius="8"
+                                                 Padding="{TemplateBinding Padding}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9"/>
+                                                            <Setter Property="BorderThickness" Value="1"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="1"/>
+                                                            <Setter Property="Background" Value="#FFD3DCEB"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Opacity" Value="0.2"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                                <Grid>
+                                    <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Составить акт платежа" Foreground="#FF465AB9" />
+                                </Grid>
+                            </Button>
+                            <Border Grid.Column="1" Grid.RowSpan="2" CornerRadius="16" Background="{StaticResource PositiveLightColor}" HorizontalAlignment="Left" Padding="10,0" Margin="5,13">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="7"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="20" FontFamily="Tahoma" Foreground="{StaticResource PositiveAccentColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="2" Text="просрочено" FontFamily="Tahoma" Foreground="{StaticResource PositiveAccentColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                </Border>
+            </Grid>
+            <Grid Grid.Row="7" x:Name="ListMenuBoard">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
                     <ColumnDefinition/>
@@ -124,8 +265,44 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Список задач" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
                             <TextBlock Grid.Row="1" Text="Задачи сегодняшнего дня" FontFamily="Tahoma" Foreground="#999" FontSize="16" VerticalAlignment="Center"/>
-                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30" Style="{DynamicResource VioletButtonStyle}">
-                                
+                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}" >
+                                        <Setter Property="Background" Value="#FFE7F0FF"/>
+
+                                        <Setter Property="Margin" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="0.5"/>
+                                        <Setter Property="BorderBrush" Value="#CCC"/>
+                                        <Setter Property="Opacity" Value="0.6"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border 
+                                                        Background="{TemplateBinding Background}" 
+                                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                                        CornerRadius="8"
+                                                        Padding="{TemplateBinding Padding}">    
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9"/>
+                                                            <Setter Property="BorderThickness" Value="1"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="1"/>
+                                                            <Setter Property="Background" Value="#FFD3DCEB"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Opacity" Value="0.2"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
                                 <Grid>
                                     <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Добавить задачу" Foreground="#FF465AB9" />
                                 </Grid>
@@ -135,6 +312,28 @@
                     </Grid>
 
                 </Border>
+            </Grid>
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="4">
+                        <TextBlock FontFamily="Tahoma" FontSize="14" HorizontalAlignment="Right" Text="v0.0.4" VerticalAlignment="Center" Margin="0,0,30,0" Foreground="#FF9A9A9A"/>
+                        <TextBlock FontFamily="Tahoma" FontSize="14" HorizontalAlignment="Left" Text="@By_Prozorov" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="#FF9A9A9A"/>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </ScrollViewer>
