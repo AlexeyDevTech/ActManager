@@ -1,4 +1,5 @@
-﻿using ActManager.Domain.Models;
+﻿using ActManager.Domain;
+using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
 using Prism.Mvvm;
 using Prism.Regions;
@@ -74,11 +75,19 @@ namespace ActManager.Core.Components.ViewModels
         private IEnumerable<Act> GetListAct()
         {
             var res = new List<Act>();
-            using (var rep = new ActRepository())
+            using (var db = new ApplicationDbContext())
             {
-                if(BuildID != null) 
-                    res = rep.GetAllFromBuiling((int)BuildID).ToList();
+                var rep = new ActRepository(db);
+                if (BuildID != null)
+                {
+                    res = rep.GetByBuildingId(BuildID ?? 0).ToList();
+                }
             }
+            //using (var rep = new ActRepository())
+            //{
+            //    if(BuildID != null) 
+            //        res = rep.GetAllFromBuiling((int)BuildID).ToList();
+            //}
             return res;
         }
     }

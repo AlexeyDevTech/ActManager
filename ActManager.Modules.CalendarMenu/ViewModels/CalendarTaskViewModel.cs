@@ -1,4 +1,5 @@
-﻿using ActManager.Domain.Repositories;
+﻿using ActManager.Domain;
+using ActManager.Domain.Repositories;
 using ActManager.Modules.CalendarMenu.Components.ViewModels;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -30,10 +31,11 @@ namespace ActManager.Modules.CalendarMenu.ViewModels
             //    new TaskItemViewModel{Title = "Task2", Description="description 2"},
             //    new TaskItemViewModel{Title = "Task3", Description="description 3"},
             //};
-            using(var rep = new GoalRepository())
+            using (var db = new ApplicationDbContext())
             {
+                var rep = new GoalRepository(db);
                 var goals = rep.GetAll();
-                foreach(var item in goals)
+                foreach (var item in goals)
                 {
                     var tsk = new TaskItemViewModel
                     {

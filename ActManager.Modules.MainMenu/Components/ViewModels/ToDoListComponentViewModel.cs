@@ -1,4 +1,5 @@
-﻿using ActManager.Domain.Models;
+﻿using ActManager.Domain;
+using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -22,8 +23,9 @@ namespace ActManager.Modules.MainMenu.Components.ViewModels
         public ToDoListComponentViewModel()
         {
             Goals = new ObservableCollection<Goal>();
-            using(var rep = new GoalRepository())
+            using(var db = new ApplicationDbContext())
             {
+                var rep = new GoalRepository(db);
                 var list = rep.GetAll();
                 foreach (var item in list)  
                 {
