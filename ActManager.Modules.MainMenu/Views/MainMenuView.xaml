@@ -23,7 +23,9 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="140"/>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="394"/>
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="93 0">
@@ -56,7 +58,45 @@
                 <ContentControl Grid.Column="2" prism:RegionManager.RegionName="MainMenuHeadItem2"/>
                 <ContentControl Grid.Column="3" prism:RegionManager.RegionName="MainMenuHeadItem3"/>
             </Grid>
-            <Grid Grid.Row="3" x:Name="ListMenuBoard">
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="10 0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="White" CornerRadius="20">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Margin="0,0,0,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Уведомления" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                            <TextBlock Grid.Row="1" Text="Будьте в курсе новостей" FontFamily="Tahoma" Foreground="#999" FontSize="16" VerticalAlignment="Center"/>
+                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30" Style="{DynamicResource VioletButtonStyle}">
+                                <Grid>
+                                    <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Фильтр уведомлений" Foreground="#FF465AB9" />
+                                </Grid>
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+                </Border>
+            </Grid>
+            <Grid Grid.Row="5" x:Name="ListMenuBoard">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="{DynamicResource HorizontalMarginWidth}"/>
                     <ColumnDefinition/>
@@ -84,44 +124,8 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Список задач" FontFamily="Tahoma" FontWeight="Bold" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
                             <TextBlock Grid.Row="1" Text="Задачи сегодняшнего дня" FontFamily="Tahoma" Foreground="#999" FontSize="16" VerticalAlignment="Center"/>
-                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30">
-                                <Button.Style>
-                                    <Style TargetType="{x:Type Button}">
-                                        <Setter Property="Background" Value="#FFE7F0FF"/>
-
-                                        <Setter Property="Margin" Value="5"/>
-                                        <Setter Property="BorderThickness" Value="0.5"/>
-                                        <Setter Property="BorderBrush" Value="#CCC"/>
-                                        <Setter Property="Opacity" Value="0.6"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="Button">
-                                                    <Border 
-                                                  Background="{TemplateBinding Background}" 
-                                                  BorderBrush="{TemplateBinding BorderBrush}" 
-                                                  BorderThickness="{TemplateBinding BorderThickness}" 
-                                                  CornerRadius="8"
-                                                  Padding="{TemplateBinding Padding}">
-                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                    </Border>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Opacity" Value="0.9"/>
-                                                            <Setter Property="BorderThickness" Value="1"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsPressed" Value="True">
-                                                            <Setter Property="Opacity" Value="1"/>
-                                                            <Setter Property="Background" Value="#FFD3DCEB"/>
-                                                        </Trigger>
-                                                        <Trigger Property="IsEnabled" Value="False">
-                                                            <Setter Property="Opacity" Value="0.2"/>
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </Button.Style>
+                            <Button Grid.Column="4" Grid.Row="0" Grid.RowSpan="2" Height="30" Style="{DynamicResource VioletButtonStyle}">
+                                
                                 <Grid>
                                     <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Добавить задачу" Foreground="#FF465AB9" />
                                 </Grid>
