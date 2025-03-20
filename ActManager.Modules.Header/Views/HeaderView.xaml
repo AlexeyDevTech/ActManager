@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="68" d:DesignWidth="1599"
+             d:DesignHeight="50" d:DesignWidth="1599"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <UserControl.Resources>
@@ -17,22 +17,31 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition x:Name="C0"/>
+            <ColumnDefinition x:Name="C1"/>
+            <ColumnDefinition x:Name="C2"/>
+            <ColumnDefinition x:Name="C3"/>
+            <ColumnDefinition x:Name="C4"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Horizontal">
-            <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="15,0,0,0">
+        <Grid x:Name="stackPanel" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Width="50" Height="50" Margin="15 0">
                 <Grid>
-                    <Image Source="/ActManager.Modules.Header;component/Resources/avatar.png" SnapsToDevicePixels="True"/>
+                    
                 </Grid>
             </Border>
-            <TextBlock Text="{Binding UserName}" VerticalAlignment="Center" Margin="10"/>
-        </StackPanel>
+            <Grid Grid.Column="1">
+                
+            </Grid>
+        </Grid>
         <Grid Grid.Column="4">
-            <Button HorizontalAlignment="Right" Content="настройки" Height="25" Visibility="Hidden"/>
+            <Grid Height="35" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 20 0">
+                <ContentControl prism:RegionManager.RegionName="HeaderTodayRegion"/>
+            </Grid>
+
         </Grid>
     </Grid>
 </UserControl>

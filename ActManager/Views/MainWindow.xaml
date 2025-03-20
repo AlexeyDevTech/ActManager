@@ -4,26 +4,40 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="900" Width="1800" >
-    <Grid Background="#FF25303E">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="68"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}" Margin="5"/>
-        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="InfoBoardRegion"/>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*"/>
-                <!--<ColumnDefinition Width="5"/>-->
-                <ColumnDefinition Width="11*"/>
-                <!--<ColumnDefinition Width="5"/>-->
-                <ColumnDefinition Width="8*"/>
-            </Grid.ColumnDefinitions>
-            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}" Margin="5"/>
-            <ContentControl Grid.Column="1" prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}" Margin="5" />
-            <ContentControl Grid.Column="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.RightBoardRegion}" Margin="5"/>
+        Title="{Binding Title}" Height="800" Width="1500" ResizeMode="CanMinimize">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Panel.ZIndex="3">
+            <Border Background="#FF31373A">
+                <Border.Effect>
+                    <DropShadowEffect Direction="10" BlurRadius="10" ShadowDepth="2"/>
+                </Border.Effect>
+                <Grid>
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.LeftBoardRegion}"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FFF1F3F5">
+                <Border BorderBrush="DarkGray" BorderThickness="0,0,0,1">
+                    <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.HeaderRegion}"/>
+                </Border>
+                
+            </Grid>
+            <Grid Grid.Row="1" Background="#FFE7E9EB">
+                <!--<Image Source="/Resources/bg.jpg" Stretch="Fill" Opacity="0.3"/>-->
+                <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

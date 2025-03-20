@@ -9,6 +9,11 @@ using Prism.Modularity;
 using System.Windows;
 using ActManager.Core.Components.Views;
 using ActManager.Core.Components.ViewModels;
+using ActManager.Domain;
+using ActManager.Modules.MainMenu;
+using System.Globalization;
+using ActManager.Modules.CalendarMenu;
+using ActManager.Modules.Buildings;
 
 namespace ActManager
 {
@@ -19,7 +24,13 @@ namespace ActManager
     {
         protected override Window CreateShell()
         {
+            var db_online = new ApplicationDbContext().DatabaseOnline();
+            if (!db_online)
+            {
+                MessageBox.Show(messageBoxText: "подключение к базе данных прошло неудачно", "Ошибка подключения к БД", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             return Container.Resolve<MainWindow>();
+            
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,6 +42,9 @@ namespace ActManager
         {
             base.ConfigureModuleCatalog(moduleCatalog);
             moduleCatalog.AddModule<GeneralModule>();
+            moduleCatalog.AddModule<MainMenuModule>();
+            moduleCatalog.AddModule<CalendarMenuModule>();
+            moduleCatalog.AddModule<BuildingsModule>();
             moduleCatalog.AddModule<InfoBoardModule>();
             moduleCatalog.AddModule<HeaderModule>();
             moduleCatalog.AddModule<LeftBoardModule>();

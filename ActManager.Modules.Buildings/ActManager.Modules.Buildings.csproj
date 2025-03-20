@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\building-100.png" />
+    <None Remove="Resources\building-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
+    <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AcrManager.Events\ActManager.Events.csproj" />
+    <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\building-100.png" />
+    <Resource Include="Resources\building-20.png" />
+    <Resource Include="Resources\cancel-100.png" />
+    <Resource Include="Resources\done-100.png" />
+    <Resource Include="Resources\high-priority-50.png" />
+    <Resource Include="Resources\low-priority-50.png" />
+    <Resource Include="Resources\mid-priority-50.png" />
+    <Resource Include="Resources\orderDone-80.png" />
+    <Resource Include="Resources\orderProgress-80.png" />
+    <Resource Include="Resources\pending-100.png" />
+    <Resource Include="Resources\totalOrder-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\Resources\" />
+    <Folder Include="Components\Helpers\" />
+  </ItemGroup>
+</Project>

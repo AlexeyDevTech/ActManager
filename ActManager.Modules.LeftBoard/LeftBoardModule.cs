@@ -1,4 +1,5 @@
-﻿using ActManager.Modules.LeftBoard.Views;
+﻿using ActManager.Core;
+using ActManager.Modules.LeftBoard.Views;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -15,7 +16,7 @@ namespace ActManager.Modules.LeftBoard
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            regionManager.RegisterViewWithRegion("LeftBoardRegion", containerProvider.Resolve<LeftBoardView>);
+            regionManager.RegisterViewWithRegion(RegionNames.LeftBoardRegion, containerProvider.Resolve<LeftBoardView>);
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)

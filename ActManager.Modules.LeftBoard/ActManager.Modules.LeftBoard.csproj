@@ -4,7 +4,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\act-100.png" />
+    <None Remove="Resources\building-80.png" />
     <None Remove="Resources\building.png" />
+    <None Remove="Resources\calendar-80.png" />
+    <None Remove="Resources\customer-70.png" />
+    <None Remove="Resources\doc-80.png" />
+    <None Remove="Resources\loading-20.png" />
+    <None Remove="Resources\male-user.png" />
+    <None Remove="Resources\menu-100.png" />
+    <None Remove="Resources\offline-20.png" />
+    <None Remove="Resources\settings-80.png" />
+    <None Remove="Resources\sync-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\act-100.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
@@ -15,6 +29,16 @@
     <ProjectReference Include="..\ActManager.Domain.Repositories\ActManager.Domain.Repositories.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\building-80.png" />
     <Resource Include="Resources\building.png" />
+    <Resource Include="Resources\calendar-80.png" />
+    <Resource Include="Resources\customer-70.png" />
+    <Resource Include="Resources\doc-80.png" />
+    <Resource Include="Resources\loading-20.png" />
+    <Resource Include="Resources\male-user.png" />
+    <Resource Include="Resources\menu-100.png" />
+    <Resource Include="Resources\offline-20.png" />
+    <Resource Include="Resources\settings-80.png" />
+    <Resource Include="Resources\sync-20.png" />
   </ItemGroup>
 </Project>

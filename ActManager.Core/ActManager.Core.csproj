@@ -8,11 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <ProjectReference Include="..\ActManager.Domain.Models\ActManager.Domain.Models.csproj" />
+    <ProjectReference Include="..\ActManager.Domain.Repositories\ActManager.Domain.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>

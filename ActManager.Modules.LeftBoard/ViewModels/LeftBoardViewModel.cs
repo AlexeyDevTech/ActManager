@@ -16,34 +16,63 @@ namespace ActManager.Modules.LeftBoard.ViewModels
     {
         //basic
         IRegionManager regionManager;
+        private LeftBoardMenuState _menuState;
 
-        public ObservableCollection<Building> Constructions { get; set; }
+        public LeftBoardMenuState MenuState
+        {
+            get => _menuState;
+            set => SetProperty(ref _menuState, value);
+        }
 
-        public ICommand SelectCommand { get; set; }
+        public ICommand SelectMenuCommand { get; set; }
+
         public LeftBoardViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
             //commands
-            SelectCommand = new DelegateCommand<object>(SelectBuilding);
-            Constructions = new ObservableCollection<Building>();
-            var rep = new BuildingsRepository();
-            var list = rep.GetAll();
-            foreach (var item in list)
+            SelectMenuCommand = new DelegateCommand<object>(SelectMenu);
+           
+        }
+
+        private void SelectMenu(object obj)
+        {
+            int param = Int32.Parse((string)obj);
+            MenuState = (LeftBoardMenuState)param;
+            switch (MenuState)
             {
-                Constructions.Add(item);
+                case LeftBoardMenuState.None:
+                    break;
+                case LeftBoardMenuState.MainMenu:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "MainMenu");
+                    break;
+                case LeftBoardMenuState.Calendar:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "Calendar");
+                    break;
+                case LeftBoardMenuState.Buildings:
+                    regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "Buildings");
+                    break;
+                case LeftBoardMenuState.Acts:
+                    break;
+                case LeftBoardMenuState.Documents:
+                    break;
+                case LeftBoardMenuState.Customers:
+                    break;
+                case LeftBoardMenuState.Settings:
+                    break;
+                default:
+                    break;
             }
         }
-
-        private void SelectBuilding(object obj)
-        {
-            int inst = (int)obj;
-            var bld = Constructions.FirstOrDefault(x => x.ID == inst);
-            Debug.WriteLine(bld.Name);
-
-            var param = new NavigationParameters();
-            param.Add("Name", bld.Name);
-            param.Add("Address", $"{bld.AddressInst.Street}, {bld.AddressInst.StreetNumber}, officeN {bld.AddressInst.OfficeNumber}");
-            regionManager.RequestNavigate(RegionNames.GeneralContentRegion, "SelectBuilding", param);
-        }
+    }
+    public enum LeftBoardMenuState : int
+    {
+        None = 0,
+        MainMenu = 1,
+        Calendar = 2,
+        Buildings = 3,
+        Acts = 4,
+        Documents = 5,
+        Customers = 6,
+        Settings = 7,
     }
 }
