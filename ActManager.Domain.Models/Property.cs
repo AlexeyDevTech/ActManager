@@ -18,7 +18,7 @@ namespace ActManager.Domain.Models
 
         [Required]
         [MaxLength(200)]
-        public string Address { get; set; }
+        public string Address { get; set; } //возможно рудимент
 
         [Required]
         [MaxLength(50)]
