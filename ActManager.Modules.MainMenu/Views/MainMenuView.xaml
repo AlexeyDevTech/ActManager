@@ -220,7 +220,7 @@
                                     <TextBlock FontFamily="Tahoma" FontWeight="Bold" Text="Составить акт платежа" Foreground="#FF465AB9" />
                                 </Grid>
                             </Button>
-                            <Border Grid.Column="1" Grid.RowSpan="2" CornerRadius="16" Background="{StaticResource PositiveLightColor}" HorizontalAlignment="Left" Padding="10,0" Margin="5,13">
+                            <Border Grid.Column="1" Grid.RowSpan="1" CornerRadius="16" Background="#FFF7BBB3" HorizontalAlignment="Left" Padding="10,0" Margin="5,0">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
@@ -228,8 +228,8 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBlock Grid.Column="0" Text="20" FontFamily="Tahoma" Foreground="{StaticResource PositiveAccentColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    <TextBlock Grid.Column="2" Text="просрочено" FontFamily="Tahoma" Foreground="{StaticResource PositiveAccentColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="0" Text="20" FontFamily="Tahoma" Foreground="#FFD5665D" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    <TextBlock Grid.Column="2" Text="просрочено" FontFamily="Tahoma" Foreground="#FFD5665D" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Grid>
                             </Border>
                         </Grid>

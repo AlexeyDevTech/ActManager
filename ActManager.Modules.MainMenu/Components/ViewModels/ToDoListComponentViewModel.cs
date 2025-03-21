@@ -1,12 +1,8 @@
 ﻿using ActManager.Domain;
 using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
-using Prism.Commands;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace ActManager.Modules.MainMenu.Components.ViewModels
 {

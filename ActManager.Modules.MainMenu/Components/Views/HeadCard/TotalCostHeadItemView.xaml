@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.TaxCashHeadItemView"
+﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.HeadCard.TotalCostHeadItemView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ActManager.Modules.MainMenu.Components.Views"
@@ -41,9 +41,9 @@
                             <RowDefinition/>
                             <RowDefinition Height="12"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="6857.23 р" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Налоговый сбор в этом месяце" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
-                        <Button  Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="30" Height="30" ToolTip="Рассчитать налог">
+                        <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="3124.65 р" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Расходы в этом месяце" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
+                        <Button  Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="30" Height="30" ToolTip="Добавить расход">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}" >
                                     <Setter Property="Background" Value="#FFE7F0FF"/>
@@ -112,4 +112,5 @@
             </Grid>
         </Border>
     </Grid>
+
 </UserControl>

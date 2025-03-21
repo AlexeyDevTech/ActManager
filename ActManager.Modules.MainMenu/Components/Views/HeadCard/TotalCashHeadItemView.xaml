@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.TotalCostHeadItemView"
+﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.HeadCard.TotalCashHeadItemView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ActManager.Modules.MainMenu.Components.Views"
@@ -30,7 +30,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-
+                    
                     <Border Background="#FF0A1533" CornerRadius="20" Margin="12 11">
                         <Image Width="40" Height="40" Source="/ActManager.Modules.General;component/Resources/totalOrder-40.png" Stretch="Fill" />
                     </Border>
@@ -41,9 +41,9 @@
                             <RowDefinition/>
                             <RowDefinition Height="12"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="3124.65 р" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
-                        <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Расходы в этом месяце" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
-                        <Button  Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="30" Height="30" ToolTip="Добавить расход">
+                        <TextBlock Grid.Row="1" FontFamily="Tahoma" FontWeight="Bold" Text="130000.00 р" Foreground="#333" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" FontFamily="Tahoma"  Text="Прибыль в месяц" Foreground="#999" FontSize="14" VerticalAlignment="Center"/>
+                        <Button  Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Right" Width="30" Height="30" ToolTip="Добавить платеж">
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}" >
                                     <Setter Property="Background" Value="#FFE7F0FF"/>
@@ -106,11 +106,10 @@
                             <TextBlock Grid.Column="1" Text="12%" FontFamily="Tahoma" Foreground="{StaticResource PositiveAccentColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Grid>
                     </Border>
-
+                    
                     <TextBlock Grid.Column="1" Grid.ColumnSpan="4" Text="чем в предыдущем месяце" Foreground="{StaticResource PositiveColor}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,8,0,0"/>
                 </Grid>
             </Grid>
         </Border>
     </Grid>
-
 </UserControl>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.ProcessTaskHeadItemView"
+﻿<UserControl x:Class="ActManager.Modules.MainMenu.Components.Views.HeadCard.ProcessTaskHeadItemView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ActManager.Modules.MainMenu.Components.Views"

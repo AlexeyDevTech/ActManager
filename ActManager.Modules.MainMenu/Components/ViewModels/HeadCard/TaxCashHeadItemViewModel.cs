@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ActManager.Modules.MainMenu.Components.ViewModels
+namespace ActManager.Modules.MainMenu.Components.ViewModels.HeadCard
 {
     public class TaxCashHeadItemViewModel : BindableBase
     {

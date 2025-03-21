@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ActManager.Modules.MainMenu.Components.Views
+namespace ActManager.Modules.MainMenu.Components.Views.HeadCard
 {
     /// <summary>
     /// Interaction logic for TotalCashHeadItemView
