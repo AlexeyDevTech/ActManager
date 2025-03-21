@@ -21,6 +21,8 @@ namespace ActManager.Modules.MainMenu
             _regionManager.RegisterViewWithRegion(RegionNames.GeneralContentRegion, containerProvider.Resolve<MainMenuView>);
             //components
             _regionManager.RegisterViewWithRegion("MainMenuToDoListRegion", containerProvider.Resolve<ToDoListComponentView>);
+            _regionManager.RegisterViewWithRegion("NotificationComponentRegion", containerProvider.Resolve<NotificationComponentView>);
+            _regionManager.RegisterViewWithRegion("PaymentComponentRegion", containerProvider.Resolve<PaymentComponentView>);
             //head items
             _regionManager.RegisterViewWithRegion("MainMenuHeadItem1", containerProvider.Resolve<TotalCashHeadItemView>);
             _regionManager.RegisterViewWithRegion("MainMenuHeadItem2", containerProvider.Resolve<TaxCashHeadItemView>);

@@ -7,7 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:LeftBoardViewModel}"
-             d:DesignHeight="761" d:DesignWidth="100"
+             d:DesignHeight="961" d:DesignWidth="100"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True" >
     <UserControl.Resources>
@@ -256,7 +256,7 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="61"/>
+                <RowDefinition Height="261"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition />
             </Grid.RowDefinitions>

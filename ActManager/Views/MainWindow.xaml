@@ -4,7 +4,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:core="clr-namespace:ActManager.Core;assembly=ActManager.Core"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="800" Width="1500" ResizeMode="CanMinimize">
+        Title="{Binding Title}" Height="1000" Width="1500" ResizeMode="CanMinimize">
     <Window.Resources>
         
     </Window.Resources>
