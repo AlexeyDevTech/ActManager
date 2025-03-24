@@ -39,5 +39,24 @@
                 <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.ContentRegion}"/>
             </Grid>
         </Grid>
+        <!-- Overlay для затемнения -->
+        <Border Grid.ColumnSpan="2" x:Name="Overlay" 
+                Background="#FF3A3A3A" 
+                Opacity="0.5"
+                Visibility="Hidden" MouseDown="Overlay_MouseDown"/>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="600"
+              Background="#F0F0F0">
+            <Grid.Effect>
+                <DropShadowEffect x:Name="ShadowRightRegion" ShadowDepth="3" 
+                  Direction="270"
+                  BlurRadius="15"
+                  Opacity="1" Color="Black"/>
+            </Grid.Effect>
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="PanelTransform" X="600"/>
+            </Grid.RenderTransform>
+            <ContentControl prism:RegionManager.RegionName="RightPanelRegion"/>
+        </Grid>
+
     </Grid>
 </Window>

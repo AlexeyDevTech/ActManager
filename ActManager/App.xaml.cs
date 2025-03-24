@@ -15,6 +15,7 @@ using System.Globalization;
 using ActManager.Modules.CalendarMenu;
 using ActManager.Modules.Buildings;
 using ActManager.Domain.Repositories;
+using ActManager.Forms;
 
 namespace ActManager
 {
@@ -69,6 +70,7 @@ namespace ActManager
             moduleCatalog.AddModule<HeaderModule>();
             moduleCatalog.AddModule<LeftBoardModule>();
             moduleCatalog.AddModule<RightBoardModule>();
+            moduleCatalog.AddModule<FormsModule>();
         }
     }
 }

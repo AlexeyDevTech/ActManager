@@ -13,7 +13,9 @@
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcrManager.Events\ActManager.Events.csproj" />
     <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
+    <ProjectReference Include="..\ActManager.Forms\ActManager.Forms.csproj" />
     <ProjectReference Include="..\ActManager.Modules.Buildings\ActManager.Modules.Buildings.csproj" />
     <ProjectReference Include="..\ActManager.Modules.CalendarMenu\ActManager.Modules.CalendarMenu.csproj" />
     <ProjectReference Include="..\ActManager.Modules.General\ActManager.Modules.General.csproj" />

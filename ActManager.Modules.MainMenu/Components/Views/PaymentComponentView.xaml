@@ -60,7 +60,8 @@
                         Grid.Row="0"
                         Grid.RowSpan="2"
                         Grid.Column="4"
-                        Height="30">
+                        Height="30"
+                        Command="{Binding CreateActCommand}">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="#FFE7F0FF" />
@@ -114,6 +115,15 @@
                         HorizontalAlignment="Left"
                         Background="#FFF7BBB3"
                         CornerRadius="16">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding OverduePayments}" Value="0">
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
@@ -128,7 +138,7 @@
                                 FontFamily="Tahoma"
                                 FontSize="15"
                                 Foreground="#FFD5665D"
-                                Text="20" />
+                                Text="{Binding OverduePayments}" />
                             <TextBlock
                                 Grid.Column="2"
                                 HorizontalAlignment="Center"
