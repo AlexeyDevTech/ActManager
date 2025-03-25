@@ -10,9 +10,6 @@ namespace ActManager.Domain.Models
         public int Id { get; set; }
 
         [Required]
-        public int PropertyId { get; set; }
-
-        [Required]
         [MaxLength(100)]
         public string TenantName { get; set; }
 
@@ -44,9 +41,9 @@ namespace ActManager.Domain.Models
 
         // Навигационные свойства
         [ForeignKey("PropertyId")]
-        public virtual Property Property { get; set; }
+        public virtual Property? Property { get; set; }
         [ForeignKey("CustomerId")]
-        public virtual Customer Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
     }
 }

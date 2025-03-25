@@ -1,10 +1,14 @@
 ﻿using ActManager.Domain;
+using ActManager.Domain.Models;
 using ActManager.Domain.Repositories;
+using ActManager.Events;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
@@ -12,76 +16,88 @@ namespace ActManager.Forms.ViewModels
 {
     public class PaymentFormViewModel : BindableBase
     {
-        private readonly IRegionManager _regionManager;
 
-        private int _id;
-        private int _contractId;
-        private double _amount;
-        private DateTime _paymentDate = DateTime.Now;
-        private DateTime _dueDate = DateTime.Now;
-        private string _status = "Pending";
-        private string _source = "manual";
+        private IEventAggregator _eventAggregator;
+        private Payment _payment;
+        private Contract _selectedContract;
+        private ObservableCollection<Contract> _contracts;
 
-        public PaymentFormViewModel(IRegionManager regionManager)
+        public PaymentFormViewModel(IEventAggregator eventAggregator)
         {
-            _regionManager = regionManager;
+            _eventAggregator = eventAggregator;
+            Payment = new Payment();
+            Contracts = new ObservableCollection<Contract>();
+            StatusOptions = new ObservableCollection<string> { "Pending", "Paid", "Overdue" };
+            SourceOptions = new ObservableCollection<string> { "manual", "bank", "auto" };
+
             SaveCommand = new DelegateCommand(Save);
+            CancelCommand = new DelegateCommand(Cancel);
+
+            GetListContracts();
         }
 
-        private void Save()
+        private void GetListContracts()
         {
-            using(var db = new ApplicationDbContext())
+            using (var db = new ApplicationDbContext())
             {
-                var rep = new PaymentRepository(db);
-                rep.Add(new Domain.Models.Payment
+                var rep = new ContractRepository(db);
+                var l = rep.GetAll();
+                foreach (var contract in l)
                 {
-
-                });
+                    _contracts.Add(contract);
+                }
             }
         }
 
-        public int Id
+
+        public Payment Payment
         {
-            get => _id;
-            set => SetProperty(ref _id, value);
+            get => _payment;
+            set => SetProperty(ref _payment, value);
         }
 
-        public int ContractId
+        public Contract SelectedContract
         {
-            get => _contractId;
-            set => SetProperty(ref _contractId, value);
+            get => _selectedContract;
+            set
+            {
+                SetProperty(ref _selectedContract, value);
+                if (value != null)
+                    Payment.ContractId = value.Id;
+            }
         }
 
-        public double Amount
+        public ObservableCollection<Contract> Contracts
         {
-            get => _amount;
-            set => SetProperty(ref _amount, value);
+            get => _contracts;
+            set => SetProperty(ref _contracts, value);
         }
 
-        public DateTime PaymentDate
+        public ObservableCollection<string> StatusOptions { get; }
+        public ObservableCollection<string> SourceOptions { get; }
+
+        public DelegateCommand SaveCommand { get; }
+        public DelegateCommand CancelCommand { get; }
+
+        private void Save()
         {
-            get => _paymentDate;
-            set => SetProperty(ref _paymentDate, value);
+            // Логика сохранения платежа
+            // Например, вызов сервиса для сохранения в БД
         }
 
-        public DateTime DueDate
+        private void Cancel()
         {
-            get => _dueDate;
-            set => SetProperty(ref _dueDate, value);
+            // Логика отмены
+            // Например, закрытие формы
+            _eventAggregator.GetEvent<PanelToggleEvent>().Publish(false);
         }
 
-        public string Status
+        // Метод для загрузки списка контрактов
+        public void LoadContracts()
         {
-            get => _status;
-            set => SetProperty(ref _status, value);
+            // Здесь должна быть логика загрузки контрактов из БД
+            // Пример:
+            // Contracts = new ObservableCollection<Contract>(contractService.GetAllContracts());
         }
-
-        public string Source
-        {
-            get => _source;
-            set => SetProperty(ref _source, value);
-        }
-
-        public ICommand SaveCommand { get; set; }
     }
 }

@@ -3,10 +3,15 @@
     <TargetFramework>net8.0-windows7.0</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AcrManager.Events\ActManager.Events.csproj" />
+    <ProjectReference Include="..\ActManager.Core\ActManager.Core.csproj" />
     <ProjectReference Include="..\ActManager.Domain.Models\ActManager.Domain.Models.csproj" />
     <ProjectReference Include="..\ActManager.Domain.Repositories\ActManager.Domain.Repositories.csproj" />
     <ProjectReference Include="..\ActManager.Domain\ActManager.Domain.csproj" />

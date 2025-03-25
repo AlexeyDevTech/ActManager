@@ -1,6 +1,7 @@
 ﻿using ActManager.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace ActManager.Domain.Repositories
 
         public IEnumerable<Contract> GetByPropertyId(int propertyId)
         {
-            return _entities.Where(c => c.PropertyId == propertyId).ToList();
+            return _entities.Include(i => i.Property).Where(c => c.Property.Id == propertyId).ToList();
         }
     }
 }

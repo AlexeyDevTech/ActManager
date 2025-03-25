@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ActManager": {
+      "commandName": "Project",
+      "hotReloadEnabled": false
+    }
+  }
+}
