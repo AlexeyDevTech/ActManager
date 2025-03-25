@@ -51,6 +51,7 @@ namespace ActManager.Domain
             modelBuilder.Entity<Goal>().Navigation(e => e.Acts).AutoInclude();
             modelBuilder.Entity<Goal>().Navigation(e => e.Customer).AutoInclude();
             modelBuilder.Entity<Customer>().Navigation(e => e.Attributes).AutoInclude();
+            modelBuilder.Entity<Contract>().Navigation(e => e.Property).AutoInclude();
         }
         public bool DatabaseOnline() => Database.CanConnect();
     }

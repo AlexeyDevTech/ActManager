@@ -18,7 +18,7 @@ namespace ActManager.Domain.Repositories
 
         public IEnumerable<Payment> GetByContractId(int contractId)
         {
-            return _entities.Where(p => p.ContractId == contractId).ToList();
+            return _entities.Where(p => p.Contract.Id == contractId).ToList();
         }
     }
 }

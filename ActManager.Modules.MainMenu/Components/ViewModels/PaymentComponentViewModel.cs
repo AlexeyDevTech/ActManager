@@ -50,6 +50,7 @@ namespace ActManager.Modules.MainMenu.Components.ViewModels
         public PaymentComponentViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
+            _eventAggregator.GetEvent<UpdateDBEvent>().Subscribe(x => GetPaymentList());
             CreateActCommand = new DelegateCommand(CreateAct);
             Payments = new ObservableCollection<Payment>();
             Payments.CollectionChanged += Payments_CollectionChanged;
@@ -139,7 +140,6 @@ namespace ActManager.Modules.MainMenu.Components.ViewModels
             GetPaymentList();
             
         }
-
         private void CreateAct()
         {
             _eventAggregator.GetEvent<PanelToggleEvent>().Publish(true);

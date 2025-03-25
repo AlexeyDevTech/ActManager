@@ -28,6 +28,11 @@
                 <Setter Property="BorderBrush" Value="#DEE2E6" />
                 <Setter Property="BorderThickness" Value="1" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#80BDFF" ShadowDepth="0" BlurRadius="4" Opacity="0.25"/>
+                    </Setter.Value>
+                </Setter>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="TextBox">
@@ -161,13 +166,15 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-
-                                    <DatePickerTextBox
+                                    <!-- Текстовое поле с привязкой к SelectedDate -->
+                                    <TextBox
+                                        x:Name="PART_TextBox"
                                         Grid.Column="0"
+                                        Background="Transparent"
+                                        BorderThickness="0"
                                         Padding="8,0,0,0"
                                         VerticalAlignment="Center"
-                                        Background="Transparent"
-                                        BorderThickness="0" />
+                                        Text="{Binding SelectedDate, RelativeSource={RelativeSource TemplatedParent}, StringFormat='dd.MM.yyyy', UpdateSourceTrigger=PropertyChanged}" />
 
                                     <Button
                                         x:Name="PART_Button"

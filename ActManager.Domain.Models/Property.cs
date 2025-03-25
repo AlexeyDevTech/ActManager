@@ -40,7 +40,7 @@ namespace ActManager.Domain.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         [ForeignKey("BuildingId")]
-        public virtual Building Building { get; set; }
+        public virtual Building? Building { get; set; }
         public virtual ICollection<Contract> Contracts { get; set; }
         public virtual ICollection<Expense> Expenses { get; set; }
         public virtual ICollection<Analytic> Analytics { get; set; }

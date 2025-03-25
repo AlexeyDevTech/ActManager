@@ -26,6 +26,8 @@ namespace ActManager.Forms.ViewModels
         {
             _eventAggregator = eventAggregator;
             Payment = new Payment();
+            Payment.PaymentDate = DateTime.Now;
+            Payment.DueDate = DateTime.Now;
             Contracts = new ObservableCollection<Contract>();
             StatusOptions = new ObservableCollection<string> { "Pending", "Paid", "Overdue" };
             SourceOptions = new ObservableCollection<string> { "manual", "bank", "auto" };
@@ -63,7 +65,7 @@ namespace ActManager.Forms.ViewModels
             {
                 SetProperty(ref _selectedContract, value);
                 if (value != null)
-                    Payment.ContractId = value.Id;
+                    Payment.Contract = value;
             }
         }
 
@@ -81,8 +83,12 @@ namespace ActManager.Forms.ViewModels
 
         private void Save()
         {
-            // Логика сохранения платежа
-            // Например, вызов сервиса для сохранения в БД
+            using (var db = new ApplicationDbContext())
+            {
+                var rep = new PaymentRepository(db);
+                rep.Add(Payment);
+                _eventAggregator.GetEvent<UpdateDBEvent>().Publish(new() { TableName =  nameof(Payment), Instance = Payment });
+            }
         }
 
         private void Cancel()

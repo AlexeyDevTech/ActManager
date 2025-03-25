@@ -31,7 +31,7 @@ namespace ActManager.Domain.Models
         public string TaxMode { get; set; } = "УСН 6%";
 
         [MaxLength(256)]
-        public string BankSyncToken { get; set; }
+        public string? BankSyncToken { get; set; }
 
         // Навигационные свойства
         public virtual ICollection<Property> Properties { get; set; }
