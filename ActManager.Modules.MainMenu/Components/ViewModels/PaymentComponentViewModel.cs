@@ -36,6 +36,7 @@ namespace ActManager.Modules.MainMenu.Components.ViewModels
 
         public void GetPaymentList()
         {
+            if (Payments.Count > 0) Payments.Clear();
             using(var db = new ApplicationDbContext())
             {
                 var rep = new PaymentRepository(db);

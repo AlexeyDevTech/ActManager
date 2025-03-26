@@ -29,7 +29,7 @@ namespace ActManager.Forms.ViewModels
             Payment.PaymentDate = DateTime.Now;
             Payment.DueDate = DateTime.Now;
             Contracts = new ObservableCollection<Contract>();
-            StatusOptions = new ObservableCollection<string> { "Pending", "Paid", "Overdue" };
+            StatusOptions = new ObservableCollection<string> { "Оплачен", "Ожидание", "Просрочен" };
             SourceOptions = new ObservableCollection<string> { "manual", "bank", "auto" };
 
             SaveCommand = new DelegateCommand(Save);
@@ -86,6 +86,7 @@ namespace ActManager.Forms.ViewModels
             using (var db = new ApplicationDbContext())
             {
                 var rep = new PaymentRepository(db);
+                rep.Attach(Payment, SelectedContract, o => o.Contract);
                 rep.Add(Payment);
                 _eventAggregator.GetEvent<UpdateDBEvent>().Publish(new() { TableName =  nameof(Payment), Instance = Payment });
             }
