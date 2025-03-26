@@ -13,7 +13,7 @@ namespace ActManager.Domain.Repositories
 
         public IEnumerable<Notification> GetByUserId(int userId)
         {
-            return _entities.Where(n => n.UserId == userId).ToList();
+            return _entities.Where(n => n.User.Id == userId).ToList();
         }
     }
 }
