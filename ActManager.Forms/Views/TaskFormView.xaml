@@ -248,7 +248,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--  ContractId  -->
+            <!--  Title  -->
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
@@ -266,17 +266,18 @@
                 Grid.Column="1"
                 Text="{Binding Goal.Title, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Amount  -->
+            <!--  Client  -->
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 Foreground="#999"
                 Text="Сумма:" />
-            <TextBox
+            <ComboBox
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{Binding Payment.Amount, UpdateSourceTrigger=PropertyChanged}" />
+                ItemsSource="{Binding Status}"
+                Text="{Binding Goal.Status}" />
 
             <!--  PaymentDate  -->
             <TextBlock
@@ -309,11 +310,7 @@
                 VerticalAlignment="Center"
                 Foreground="#999"
                 Text="Статус:" />
-            <ComboBox
-                Grid.Row="4"
-                Grid.Column="1"
-                ItemsSource="{Binding StatusOptions}"
-                Text="{Binding Payment.Status}" />
+
 
             <!--  Source  -->
             <TextBlock
