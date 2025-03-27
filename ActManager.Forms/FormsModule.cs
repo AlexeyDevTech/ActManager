@@ -16,12 +16,13 @@ namespace ActManager.Forms
         }
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            _regionManager.RegisterViewWithRegion("RightPanelRegion", typeof(PaymentFormView));
+            _regionManager.RegisterViewWithRegion("RightPanelRegion", typeof(TaskFormView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<PaymentFormView, PaymentFormViewModel>();
+            containerRegistry.RegisterForNavigation<TaskFormView, TaskFormViewModel>();
         }
     }
 }

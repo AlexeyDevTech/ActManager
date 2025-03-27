@@ -1,4 +1,5 @@
 ﻿using ActManager.Domain.Models;
+using ActManager.Forms.Converters;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -10,7 +11,13 @@ namespace ActManager.Forms.ViewModels
     public class TaskFormViewModel : BindableBase
     {
         private Goal _goal;
+        private string _selectedStatusDescription;
 
+        public string SelectedStatusDescription
+        {
+            get => _selectedStatusDescription;
+            set => SetProperty(ref _selectedStatusDescription, value);
+        }
         public Goal Goal
         {
             get => _goal;
@@ -19,7 +26,7 @@ namespace ActManager.Forms.ViewModels
 
         public TaskFormViewModel()
         {
-
+            _goal = new Goal();
         }
     }
 }

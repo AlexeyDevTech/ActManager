@@ -2,9 +2,12 @@
     x:Class="ActManager.Forms.Views.TaskFormView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conv="clr-namespace:ActManager.Forms.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="clr-namespace:ActManager.Forms.Helpers"
     xmlns:local="clr-namespace:ActManager.Forms.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:ActManager.Domain.Models;assembly=ActManager.Domain.Models"
     xmlns:prism="http://prismlibrary.com/"
     xmlns:vm="clr-namespace:ActManager.Forms.ViewModels"
     d:DataContext="{d:DesignInstance vm:TaskFormViewModel}"
@@ -14,6 +17,7 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/ActManager.Forms;component/Resources/StyleDictionary.xaml" />
                 <ResourceDictionary Source="/ActManager.Core;component/Resources/StyleDictionary.xaml" />
@@ -87,14 +91,31 @@
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
 
+                                        <!--  Исправленный TextBox  -->
+                                        <TextBox
+                                            x:Name="PART_EditableTextBox"
+                                            Grid.Column="0"
+                                            Margin="8,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Text="{TemplateBinding Text}"
+                                            Visibility="{TemplateBinding IsEditable,
+                                                                         Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                                        <!--  Исправленный ContentPresenter  -->
                                         <ContentPresenter
+                                            x:Name="ContentPresenter"
                                             Grid.Column="0"
                                             Margin="8,0,0,0"
                                             VerticalAlignment="Center"
                                             Content="{TemplateBinding SelectionBoxItem}"
                                             ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                             ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                                            IsHitTestVisible="False" />
+                                            IsHitTestVisible="False"
+                                            Visibility="{TemplateBinding IsEditable,
+                                                                         Converter={StaticResource BooleanToVisibilityConverter},
+                                                                         ConverterParameter=Inverted}" />
 
                                         <ToggleButton
                                             Grid.Column="1"
@@ -213,6 +234,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
         </ResourceDictionary>
 
     </UserControl.Resources>
@@ -266,18 +288,26 @@
                 Grid.Column="1"
                 Text="{Binding Goal.Title, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Client  -->
+            <!--  Status  -->
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 Foreground="#999"
-                Text="Сумма:" />
+                Text="Клиент:" />
             <ComboBox
-                Grid.Row="1"
-                Grid.Column="1"
-                ItemsSource="{Binding Status}"
-                Text="{Binding Goal.Status}" />
+            Grid.Row="1"
+            Grid.Column="1"
+            IsEditable="True"
+            IsTextSearchEnabled="False"
+            ItemsSource="{Binding Source={helpers:EnumSource {x:Type models:GoalStatus}}}"
+            ItemTemplate="{StaticResource EnumDescriptionTemplate}"
+            SelectedValue="{Binding Goal.Status, UpdateSourceTrigger=PropertyChanged}"
+            SelectedValuePath="."
+            Text="{Binding SelectedStatusDescription, UpdateSourceTrigger=PropertyChanged}"
+            StaysOpenOnEdit="True"
+            KeyUp="ComboBox_KeyUp"
+            SelectionChanged="ComboBox_SelectionChanged" />
 
             <!--  PaymentDate  -->
             <TextBlock
@@ -319,11 +349,7 @@
                 VerticalAlignment="Center"
                 Foreground="#999"
                 Text="Источник:" />
-            <ComboBox
-                Grid.Row="5"
-                Grid.Column="1"
-                ItemsSource="{Binding SourceOptions}"
-                Text="{Binding Payment.Source}" />
+
         </Grid>
 
         <!--  Кнопки  -->
